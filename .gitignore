@@ -4,4 +4,6 @@ pom.xml
 /classes/
 /target/
 /targets/
+*.ipr
+*.iws
 .lein-deps-sum

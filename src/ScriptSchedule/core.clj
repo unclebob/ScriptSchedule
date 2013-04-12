@@ -34,8 +34,8 @@
     "NONE"
     (let [first-space (.indexOf set " ")
           dash (.indexOf set "-")
-          loc-end (if (> 0 dash) (count set) (dec dash))]
-      (subs set (inc first-space) loc-end))))
+          location-end (if (> 0 dash) (count set) (dec dash))]
+      (subs set (inc first-space) location-end))))
 
 (defn make-scene [tag]
   (let [attrs (:attrs tag)
