@@ -1,0 +1,3215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<FinalDraft DocumentType="Script" Template="No" Version="1">
+
+  <Content>
+    <Paragraph Type="General">
+      <Text>The theme is coupling:  Things coupled together.  Long chains of magnets, long chains of paperclips, train cars coupled together.  Etc. Etc.   </Text>
+    </Paragraph>
+    <Paragraph Type="General">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Label="S1" Type="General">
+      <Text>Segment 1 - Welcome</Text>
+    </Paragraph>
+    <Paragraph Number="1" Type="Scene Heading">
+      <SceneProperties Length="1 3/8" Page="1" Title=""/>
+      <Text>EXT. FRONT DOOR - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Starting from Island, a trudge through the icy ground to the front door.  The tip of Where’s Waldo hat popping in front of camera.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Welcome, welcome, to Clean Code Episode 17: Component Coupling. Here, let me take your hat.  (Where’s Waldo hat)
+</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Walk from door through hallway, great room, into Kitchen</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>In the previous episode we learned the different ways that classes cohere into components; and we learned a bit about the forces of false cohesion that impede independent deployability.  </Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Leave kitchen and walk to head of stairs. “Release-Reuse Equivalence Principle” painted on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>We learned about the Release-Reuse equivalence Principle which told us that the granule of reuse is the granule of release.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Walking down the stairs. “Common Closure Principle” painted on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Then we learned about the Common Closure principle which told us that classes that change for the same reasons should cohere into the same components.  Classes that change for different reasons should be separated into different components.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Walk across rec room to office door. “Common Reuse Principle” painted on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And then we learned about the Common Reuse Principle that reminded us, once again, the problems of too much knowledge.  It told us that classes should be grouped into components so that when a component is used, every class in that component is used.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Standing at office door.  Tension Diagram.png on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And then Albert told us that these principles were mutually exclusive.  And that our conformance to them depends on the maturity of our projects.  Early on we favor those principles that support development.  Later we favor those principles that support reuse.</Text>
+    </Paragraph>
+    <Paragraph Number="2" Type="Scene Heading">
+      <SceneProperties Length="1" Page="2" Title=""/>
+      <Text>INT. OFFICE - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Standing inside office at door. Walking to whiteboard. Picture or video of train cars coupling.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now in this episode we’re going to talk about Component Coupling, and the forces that bind components together into systems.  We’ll discuss three principles that govern these relationships.  The Acyclic Dependencies Principle, The Stable Dependencies Principle, and the Stable Abstractions Principle.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Walk over to chair.  Fiddle with stuff on the way.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>We’ll discuss the morning after syndrome that arises from large teams interfering with each other; and we’ll talk about the two major solutions that were discovered in the late </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">‘60s</Text>
+      <Text>.  </Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Sit and swivel</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Then we’ll talk about the stability of components, what it is, how to measure it, and how it governs the dependencies between components.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Walk over to prop basket, pull out </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">circos</Text>
+      <Text>, and fiddle.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And then we’ll learn about the special relationships between abstraction and stability, and how it provides a way to escape from rigid structures.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Walk to slide rule and fiddle.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And finally, we’ll talk about a system of </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">metrics</Text>
+      <Text> that we can use to measure the quality of our component designs.</Text>
+    </Paragraph>
+    <Paragraph Number="3" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="3" Title=""/>
+      <Text>INT. gS - Transporter room</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>02 </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Deceleration.mp3</Text>
+      <Text> in background.  KIRK stands rigid at end for 5 seconds while surrounded by force field effect from Forbidden Planet deceleration scene.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Kirk</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So proceed immediately to your DC stations and activate your inertial dampers. You _sure_ don’t wanna bounce through this one.  Because after we talk about Beta Decay, we’re going to slingshot through the barrier of component couplings!</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Alignment="Left" FirstIndent="0.00" Label="S2" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="Yes" Type="General">
+      <Text>Segment 2 - Beta Decay</Text>
+    </Paragraph>
+    <Paragraph Number="4" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="4" Title=""/>
+      <Text>INT. Basement BaTHROOM - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Shoot reflection.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>When you look at your reflection in the mirror, you see yourself in mirror image; But what does that phrase: “Mirror Image” mean?</Text>
+    </Paragraph>
+    <Paragraph Number="5" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="4" Title=""/>
+      <Text>INT. Kitchen - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Usually we think of it as a left-right reversal.  After all, letters and words appear backwards, our reflection’s hair is parted on the “wrong” side, etc.  </Text>
+    </Paragraph>
+    <Paragraph Number="6" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="4" Title=""/>
+      <Text>InT. mASTER BATH - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Close-up of reflection, pull back to expose </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UB</Text>
+      <Text> in front of mirror.  Signs are </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">left.graffle</Text>
+      <Text> And </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">right.graffle</Text>
+      <Text>.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But actually there is no left right reversal.  I can prove that by pointing to the right.  Notice that my reflection is also pointing to the right.  </Text>
+    </Paragraph>
+    <Paragraph Number="7" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="4" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Interesting question isn’t it?  What is reversed in a mirror if not left and right?</Text>
+    </Paragraph>
+    <Paragraph Number="8" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="4" Title=""/>
+      <Text>INT. Basement Bathroom - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>If I hold up signs with arrows that point to the right and left, the mirror shows them pointing in the wrong direction.  But I can correct that by flipping them front to back! Front to back!</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Notice, also, that the front of my reflection is facing me.  Our fronts are pointing in opposite directions!  The mirror is reversing back to front, not left to right.</Text>
+    </Paragraph>
+    <Paragraph Number="9" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="5" Title=""/>
+      <Text>INT. WSL - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">photobooth</Text>
+      <Text> on screen, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UB</Text>
+      <Text> turns into face it.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now, let’s say that there were two worlds.  Ours, and another that was the mirror image of ours.  Is there an experiment you could perform that would tell you which of these two worlds you lived in?</Text>
+    </Paragraph>
+    <Paragraph Number="10" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="5" Title=""/>
+      <Text>INT. GREAT ROOM. - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>If you give this some thought you’ll quickly realize that the answer is: “no”.  Any experiment you conduct in the mirror world will have exactly the same results as the corresponding experiment in our world.    </Text>
+    </Paragraph>
+    <Paragraph Number="11" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="5" Title=""/>
+      <Text>INT. Master Bath - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Holding phone</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Indeed, if you were speaking on the phone to someone else, there is no experiment that the two of you could jointly perform that would tell you that you were in different worlds.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Parenthetical">
+      <Text>(holding watch in mirror)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>For example, if you asked your reflection what direction the hands of his watch were moving, he’d say: Clockwise, of course.</Text>
+    </Paragraph>
+    <Paragraph Number="12" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="6" Title=""/>
+      <Text>INT. Den - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Physicists call this inability to determine which side of the mirror you are on, the symmetry of “Parity”.  And indeed that symmetry is a law of physics.</Text>
+    </Paragraph>
+    <Paragraph Number="13" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="6" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>No it ain’t, leastwise not since 1934, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">cuz</Text>
+      <Text> that’s when the rule changed on us.  And that’s a story even my mule loves to hear.  Ya see, it all began back with </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Bequerel</Text>
+      <Text> in 1896.</Text>
+    </Paragraph>
+    <Paragraph Number="14" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="6" Title=""/>
+      <Text>INT. VOICEOVER - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Scene from </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">E3</Text>
+      <Text> </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">S2</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Remember back in Episode 3 we talked about </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Becquerel’s</Text>
+      <Text> discovery of radioactivity when he noticed the fogging of photographic plates?</Text>
+    </Paragraph>
+    <Paragraph Number="15" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="6" Title=""/>
+      <Text>INT. hobby Room - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">220px-Ernest_Rutherford_cropped.jpg</Text>
+      <Text> on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Parenthetical">
+      <Text>(in lab coat)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Three years later, in 1899, Ernest Rutherford showed that there was more than one kind of radiation.  There were Alpha rays that could not penetrate even one sheet of thin paper, and there were Beta rays that could penetrate several layers of paper.</Text>
+    </Paragraph>
+    <Paragraph Number="16" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="6" Title=""/>
+      <Text>INT. voicEOVER - minecraft</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Minecraft.mov:</Text>
+      <Text> Character holds up block of wood, then bar of iron.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>A year later, Paul </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Villard</Text>
+      <Text> </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">dicovered</Text>
+      <Text> a third kind of radiation which Rutherford named the gamma ray.  It could pass through blocks of wood, but was stopped by metals like iron or lead.</Text>
+    </Paragraph>
+    <Paragraph Number="17" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="7" Title=""/>
+      <Text>INT. DEN - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>On wall: </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">1280px-Cyclotron_motion.jpg</Text>
+      <Text>, cite in credits “Cyclotron Motion Image: </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Marcin</Text>
+      <Text> </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Bialek</Text>
+      <Text>”.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>That same year, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Becquerel</Text>
+      <Text> measured the mass to charge ratio of beta rays and found them to be identical to electrons.</Text>
+    </Paragraph>
+    <Paragraph Number="18" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="7" Title=""/>
+      <Text>INT. WSR - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">220px-Ernest_Rutherford_cropped</Text>
+      <Text> (1)</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">.jpg</Text>
+      <Text> and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">soddy.jpg</Text>
+      <Text> appear in time.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>AlbERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>A year later, in 1901, Rutherford, and Fredrick </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Soddy</Text>
+      <Text> showed that Alpha and Beta rays were emitted when atoms of one element transmuted into atoms of another element...  </Text>
+    </Paragraph>
+    <Paragraph Number="19" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="7" Title=""/>
+      <Text>INT. Whiteboard - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Soddy.jpg</Text>
+      <Text> And </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Fajans.jpg</Text>
+      <Text> appear in time in picture frames.  Show periodic table on whiteboard.  Zoom in to Oxygen.  Then nicely animate </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">twoSpacesLeft</Text>
+      <Text> and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">oneSpaceRight</Text>
+      <Text> in time.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>...And 12 years later, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Soddy</Text>
+      <Text> and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Kasimir</Text>
+      <Text> </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Fajans</Text>
+      <Text> showed that when an atom emits an alpha ray, it transmutes to an element two spaces to the left on the periodic chart; but when it emits a beta ray it transmutes one space to the right.</Text>
+    </Paragraph>
+    <Paragraph Number="20" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="8" Title=""/>
+      <Text>INT. gs - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Meitner.jpeg</Text>
+      <Text> and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">hahn.jpg</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>In 1911, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Lise</Text>
+      <Text> </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Meitner</Text>
+      <Text> and Otto Hahn showed that the beta ray (electron) emitted when an element transmuted to the right, did not have sufficient energy.  </Text>
+    </Paragraph>
+    <Paragraph Number="21" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="8" Title=""/>
+      <Text>INT. oFFICE - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Indeed, this missing energy was a huge problem.  </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Meitner</Text>
+      <Text> and Hahn knew the energy that should be released by the transmutation, and yet the beta ray (the electron) didn’t carry that energy.  Where did the missing energy go?  Nobody knew.</Text>
+    </Paragraph>
+    <Paragraph Number="22" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="8" Title=""/>
+      <Text>INT. gS - eNTERPRISE D</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DatA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And so the situation remained for 19 years.  It was a deeply disturbing puzzle.</Text>
+    </Paragraph>
+    <Paragraph Number="23" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="8" Title=""/>
+      <Text>INT. KITCHEN - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">sm_pauli.jpg</Text>
+      <Text> on cereal box that </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UB</Text>
+      <Text> takes from pantry and sets on counter.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Then, in 1930, in desperation, Wolfgang Pauli suggested that some undetected neutral particle must be carrying the missing energy away.  </Text>
+    </Paragraph>
+    <Paragraph Number="24" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="8" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Engineer holds </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">fermi.jpg</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>A feller by the name of Enrico Fermi thought that was a cracker-jack of an idea, and he named that particle the Neutrino, which means Little Neutral One.  Reminds me of </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">my...Aw</Text>
+      <Text>, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">nevermind</Text>
+      <Text>.</Text>
+    </Paragraph>
+    <Paragraph Number="25" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="9" Title=""/>
+      <Text>INT. whITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">betaDecay.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And in 1934 Fermi proposed the model for the Beta Decay.  He said that a neutron would sometimes decay into a proton, an electron, and a neutrino.</Text>
+    </Paragraph>
+    <Paragraph Number="26" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="9" Title=""/>
+      <Text>INT. kITCHEN - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>AlBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Parenthetical">
+      <Text>(making lunch)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now, if you measure the spin of that neutrino as it moves away from you, you will find that it is always spinning clockwise.  Every time.  No exceptions.</Text>
+    </Paragraph>
+    <Paragraph Number="27" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="9" Title=""/>
+      <Text>INT. MASTER BATH - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>In mirror, on phone, holding sandwich</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But if you ask your reflection to do the same experiment, and ask what direction the neutrino is spinning, your reflection will tell you that the neutrino is spinning counter-clockwise!</Text>
+    </Paragraph>
+    <Paragraph Number="28" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="9" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And so that </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">thar</Text>
+      <Text> law of the Symmetry of Parity </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">aint</Text>
+      <Text> worth all those high </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">falutin</Text>
+      <Text> syllables is it, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">cus’n</Text>
+      <Text> it ain’t right.  Their ain’t no law of the symmetry of parity.  (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">hark</Text>
+      <Text> a goober into </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">spitoon</Text>
+      <Text>).</Text>
+    </Paragraph>
+    <Paragraph Number="29" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="10" Title=""/>
+      <Text>INT. gS - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Indeed.</Text>
+    </Paragraph>
+    <Paragraph Number="30" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="10" Title=""/>
+      <Text>Int. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ROD SERLING</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The breaking of that symmetry is no minor consideration.  That we can tell what side of the mirror we live on is a fact so profound that nearly all others pale in comparison.  For with that fact comes another.  A fact that we will explore in a future episode.  A fact that provides the answer to THE question.  Why -- are we here?   </Text>
+    </Paragraph>
+    <Paragraph Alignment="Left" FirstIndent="0.00" Label="S3" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="Yes" Type="General">
+      <Text>Segment 3 - The Acyclic Dependencies Principle</Text>
+    </Paragraph>
+    <Paragraph Number="31" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="11" Title=""/>
+      <Text>INT. kITCHEN - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UB</Text>
+      <Text> is </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">hungover</Text>
+      <Text>.  Ice-pack.  Sunglasses.  Bathrobe.  </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Asprin</Text>
+      <Text> bottle.  Beer.  Etc.  </Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Have you ever left work with all your software working, all your tests passing, everything all set to go, only to come back the next morning to find your stuff doesn’t work anymore?  Do you know why that happens?  It happens because somebody stayed later than you and changed something you depended upon.  So you fix it all up and get it all working again, and go home, only to find that next morning that your stuff doesn’t work again.  We call that -- the morning after syndrome!</Text>
+    </Paragraph>
+    <Paragraph Number="32" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="11" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Doctor</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>This is a chronic condition caused by attempting to develop software with large teams and improper development procedures.  Historically there have been two primary solutions.</Text>
+    </Paragraph>
+    <Paragraph Number="33" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="11" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>MONK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The first is known as The Weekly Build.</Text>
+    </Paragraph>
+    <Paragraph Number="34" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="11" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>JERRY JAVA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Oh! Oh!  I’ve done that before.  It’s really easy.  Everybody just checks out all the code on Monday, and then they do whatever they want with it all week without worrying about anybody else, and then Friday we all integrate.  Easy!</Text>
+    </Paragraph>
+    <Paragraph Number="35" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="12" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DANNY DOTNET</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Yeah, I’ve done that a few times too.  It works OK. But sometimes you get on these projects where Friday just isn’t long enough, and you wind up integrating on Saturday.  I hate that!</Text>
+    </Paragraph>
+    <Paragraph Number="36" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="12" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Ruby Rod</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Oh, Yeah, man.  We did that at </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Farcebrook</Text>
+      <Text> -- or was it </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Goopon</Text>
+      <Text>?  I forget.  But dude, Friday was never long enough to finish integrating; and we were doing so many Saturdays that we decided we’d just start integrating on </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Thurday</Text>
+      <Text>..  </Text>
+    </Paragraph>
+    <Paragraph Number="37" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="12" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>JERRY JAVA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Oh, yeah!  The same thing happened to us at </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ogrecal</Text>
+      <Text>.  But after awhile even Thursday wasn’t enough, and so we started integrating on Wednesday. </Text>
+    </Paragraph>
+    <Paragraph Number="38" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="12" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DANNY DOTNET</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Yeah, I was working in Redmond once when we finally gave up on integrating every week, and started integrating every other week.</Text>
+    </Paragraph>
+    <Paragraph Number="39" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="12" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>RuBY ROD</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Oh Dude! That’s just so </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">wierd</Text>
+      <Text>.  I mean, we did the same thing at Sleeping Social -- or was it </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">fiveround</Text>
+      <Text>?  I forget.  But, yeah, I mean, like we pushed the integration to once every two weeks; but after awhile it took us the whole second week to integrate.  So we decided to just integrate once per month.  </Text>
+    </Paragraph>
+    <Paragraph Number="40" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="13" Title=""/>
+      <Text>INT. wsL - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>I think you get the idea.  The weekly build works fine so long as Friday is sufficient time for integration.  But as teams grow larger and the code gets more complicated, integration tends to take more and more time.  And so you gradually grow to biweekly builds, and then monthly builds.</Text>
+    </Paragraph>
+    <Paragraph Number="41" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="13" Title=""/>
+      <Text>INT. WSR - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>I once consulted for a large telecommunications company who had grown their build cycle from weekly to </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">bi-weekly</Text>
+      <Text>, to monthly, and wound up suffering with a two week development period followed by a two week integration period.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Their solution was to stop development for three months, and convert the architecture of their system to follow the second primary solution to the Morning After Syndrome: The Acyclic Dependencies Principle.</Text>
+    </Paragraph>
+    <Paragraph Number="42" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="13" Title=""/>
+      <Text>INT. GS - classroom</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Components.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The Acyclic Dependencies Principle says that a software system should be composed of components, and that the dependencies between those components must not form a cycle.  That is, for any given component you should not be able to follow the dependencies back to that component.  The result of this is that the structure of the dependencies between components forms a Directed Acyclic Graph.</Text>
+    </Paragraph>
+    <Paragraph Number="43" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="14" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">ouroboros.jpg</Text>
+      <Text>, cite in credits: “</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ouroboros</Text>
+      <Text> design by Peter </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Dunlap-Shohl</Text>
+      <Text>, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">http:</Text>
+      <Text>//</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">frozengrin.blogspot.com</Text>
+      <Text>/2012/09/</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">new-t-shirt-design-worm-ouroboros-good.html</Text>
+      <Text>.   Put the </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">QR</Text>
+      <Text> in this scene.  </Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>What he's trying to say with all those fancy university words is that the arrows you draw between your components ought never to go in a circle like a rattle snake swallowing it's tail. </Text>
+    </Paragraph>
+    <Paragraph Number="44" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="14" Title=""/>
+      <Text>INT. mac 128 - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Components.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>I often verify this by simply drawing the component graph and making sure that all my arrows point in a downward direction.  If they're all pointing down, there can't be any cycles.</Text>
+    </Paragraph>
+    <Paragraph Number="45" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="14" Title=""/>
+      <Text>INT. GS - Enterprise 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Kirk</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But why?  Why would cycles pose problems?</Text>
+    </Paragraph>
+    <Paragraph Number="46" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="14" Title=""/>
+      <Text>INT. whiteboard - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Garage.graffle</Text>
+      <Text>  Zoom in on Alarm at appropriate time.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Consider this component architecture.  Notice that all the arrows point down, so there are no cycles.  Imagine that each component is being developed by different teams.  Imagine also that the Alarm team is ready to release version 1.0 of their component.</Text>
+    </Paragraph>
+    <Paragraph Number="47" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="15" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Who do they release their component to?  Clearly it's the teams who are developing the Conveyor and Elevator components.  The procedure is simple.  They simply produce version 1.0 of Alarm and put that component somewhere where the Conveyor and Elevator teams can get at it.</Text>
+    </Paragraph>
+    <Paragraph Number="48" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="15" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Sherlock</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Of course this means that the Alarm team is free to begin working on release 1.1, while the Conveyor and Elevator teams work with release 1.0.  The teams can work independently because the components are independently developable.</Text>
+    </Paragraph>
+    <Paragraph Number="49" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="15" Title=""/>
+      <Text>INT. GS - Enterprise 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Garage.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Clearly, since both the Elevator and Conveyor teams are using release 1.0 of Alarm, the Alarm team is free to make any changes it wishes in preparation for release 1.1, without affecting the Elevator and Conveyor teams.  There is no Morning After Syndrome.</Text>
+    </Paragraph>
+    <Paragraph Number="50" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="15" Title=""/>
+      <Text>INT. whiteboard - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And this independent </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">developability</Text>
+      <Text> continues up the diagram.  Conveyor and Elevator can make their release 1.0 to Transport, and then start work on their 1.1.  Transport can release 1.0 to Control Panel, and so on. The teams work independently of each other.</Text>
+    </Paragraph>
+    <Paragraph Number="51" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="16" Title=""/>
+      <Text>INT. GS - Enterprise D</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Garage.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">DaSceneScenetA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Of course this means that each release travels up the diagram like a wave; requiring some careful project management.</Text>
+    </Paragraph>
+    <Paragraph Number="52" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="16" Title=""/>
+      <Text>INT. imac - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And in fact that's not always possible.  What really happens is that the various teams form temporary coalitions as they work together on their releases.  For example Alarm and Elevator might decide to develop release 1.2 together instead of independently.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But these agreements are brief, and the component teams are free to reassert their independence once the collaboration is complete.  So the Morning After Syndrome is always under their control.</Text>
+    </Paragraph>
+    <Paragraph Number="53" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="16" Title=""/>
+      <Text>INT. FIREPLACE - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Bob.gif</Text>
+      <Text> On </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">wall.Sc</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So now let me tell you the story of some poor schmuck who in 1989, while working at Rational on the first release of Rose, haplessly created a cycle in the component graph.</Text>
+    </Paragraph>
+    <Paragraph Number="54" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="17" Title=""/>
+      <Text>INT. whiteboard - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Rose.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>He was the responsible programmer for the Error Management component, which was at the bottom of the component dependency diagram.  He needed to put a message on the </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UI</Text>
+      <Text> screen.  There was a class in the </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UI</Text>
+      <Text> component, at the top of the diagram, that had a display method.  </Text>
+    </Paragraph>
+    <Paragraph Number="55" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="17" Title=""/>
+      <Text>INT. MASTER BATH - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And so he called it.</Text>
+    </Paragraph>
+    <Paragraph Number="56" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="17" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Bob.gif</Text>
+      <Text> On wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Sherlock</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The fool!  The blithering idiot!  He created a cycle!  God help him now!</Text>
+    </Paragraph>
+    <Paragraph Number="57" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="17" Title=""/>
+      <Text>EXT. 1737 Tall Pine Way - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Play </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Booch</Text>
+      <Text> video afterwards.  Cite in credits: “A special thanks to Grady </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Booch</Text>
+      <Text>.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Well, it wasn't God who helped; not quite.  But to me, at that time, it might as well have been.  You see, when the help came, it came from Grady </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Booch</Text>
+      <Text>.  </Text>
+    </Paragraph>
+    <Paragraph Number="58" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="17" Title=""/>
+      <Text>INT. couch - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>angry_mob.gif</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>I needed the help too, because the day after I did that, the rest of the developers on the Rose team came to my cubicle with clubs. </Text>
+    </Paragraph>
+    <Paragraph Number="59" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="18" Title=""/>
+      <Text>EXT. car - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>You see, by creating that cycle, I had made the entire system </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">unreleasable</Text>
+      <Text>.  Indeed, I had made it </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">unbuildable</Text>
+      <Text>!</Text>
+    </Paragraph>
+    <Paragraph Number="60" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="18" Title=""/>
+      <Text>INT. WSR - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">RoseCycle.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Here's that cycle.  Now imagine that the Semantics team is preparing to release version 1.2.  They need Error Management 1.2, which needs </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UI</Text>
+      <Text> 1.2, which needs Projections 1.2, which needs Semantics 1.2, which is the version we are trying to release.</Text>
+    </Paragraph>
+    <Paragraph Number="61" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="18" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Sherlock</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So now, of course, all those teams must be working with the same version of the code.  They'll be stepping all over each other.  They'll be experiencing the Morning After Syndrome.  Disgusting!</Text>
+    </Paragraph>
+    <Paragraph Number="62" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="18" Title=""/>
+      <Text>INT. WSL - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">RoseCycle.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But that's not the worst part.  The poor Semantics team has suddenly found itself dependent on the Persistence component.  They don't need it.  They don't want it.  But they now have a transitive dependency on that component.  </Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But the Persistence subsystem is broken, and will be for several weeks.  So now Semantics is frozen, waiting for Persistence.</Text>
+    </Paragraph>
+    <Paragraph Number="63" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="19" Title=""/>
+      <Text>INT. GS - Enterprise 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Decidedly suboptimal.</Text>
+    </Paragraph>
+    <Paragraph Number="64" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="19" Title=""/>
+      <Text>INT. SUN ROOM - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But things are actually worse than that.  There is no correct build order for the system.  In statically typed languages, compilers must build from the bottom up.  But when there's a cycle, there's no bottom.  And that means that the output of the build is undefined.</Text>
+    </Paragraph>
+    <Paragraph Number="65" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="19" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>JERRY JAVA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Oh, wow!  Is that why I have to build my system two or three times in order to get it to work?</Text>
+    </Paragraph>
+    <Paragraph Number="66" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="19" Title=""/>
+      <Text>INT. GS - Enterprise D</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DatA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Very likely.</Text>
+    </Paragraph>
+    <Paragraph Number="67" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="19" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DANNY DOTNET</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Ha ha! Visual Studio doesn't allow cycles between projects, so we don't have that problem.  </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Nya</Text>
+      <Text>, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">nya</Text>
+      <Text>!</Text>
+    </Paragraph>
+    <Paragraph Number="68" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="19" Title=""/>
+      <Text>INT. GS - Enterprise 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Indeed, one of the few good things about that tool. </Text>
+    </Paragraph>
+    <Paragraph Number="69" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="19" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Ruby Rod</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>What a drag that you guys have to deal with that.  (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">smug</Text>
+      <Text> grin).</Text>
+    </Paragraph>
+    <Paragraph Number="70" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="20" Title=""/>
+      <Text>INT. OFFICE - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Don't looks so smug Ruby, you still need to deal with the cycles even if build order isn't an issue for you.  </Text>
+    </Paragraph>
+    <Paragraph Number="71" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="20" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Ruby Rod</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Bummer, man; bummer.</Text>
+    </Paragraph>
+    <Paragraph Number="72" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="20" Title=""/>
+      <Text>EXT. Car - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So what do you do if you find yourself with a cycle?  How do you break it?  It turns out there are two ways.</Text>
+    </Paragraph>
+    <Paragraph Number="73" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="20" Title=""/>
+      <Text>INT. whiteboard - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">SplitComponent.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The first approach is very simple.  Just split the component that is the target of the cycle.  In the Error Management case I could have pulled that display class out of the </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UI</Text>
+      <Text> component and put it into a new component that both </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UI</Text>
+      <Text> and Error Management depended on.</Text>
+    </Paragraph>
+    <Paragraph Number="74" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="20" Title=""/>
+      <Text>INT. GS - Enterprise 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Show </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">tribbles</Text>
+      <Text> multiplying to fill screen.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>Kirk</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Splitting components sounds risky.  If you keep doing it, you'll wind up with lots of little tiny components.</Text>
+    </Paragraph>
+    <Paragraph Number="75" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="20" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>componentDip.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>True.  So the other approach is to use the Dependency Inversion Principle.  We find the dependency that causes the cycle, and we invert it.  In this case, we can create an interface for displaying messages.  That interface can reside in the Error Management component and be implemented by the </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UI</Text>
+      <Text>.</Text>
+    </Paragraph>
+    <Paragraph Number="76" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="21" Title=""/>
+      <Text>INT. Den - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>In either case, the solution is simple.  And so the principle can always be followed.  To avoid the morning after syndrome, keep all cycles out of the component graph.  </Text>
+    </Paragraph>
+    <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.50" Number="77" RightIndent="7.50" SpaceBefore="24" Spacing="1" StartsNewPage="Yes" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="22" Title=""/>
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Type="General">
+      <Text>Segment 4 - The Stable Abstractions Principle</Text>
+    </Paragraph>
+    <Paragraph Number="78" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="22" Title=""/>
+      <Text>INT. gs - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Which would you rather depend upon?  A component that is stable?  Or a component that is unstable?</Text>
+    </Paragraph>
+    <Paragraph Number="79" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="22" Title=""/>
+      <Text>INT. wsL - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Of course that’s a silly question, because the obvious answer is that you’d rather depend upon a component that is stable.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But why?</Text>
+    </Paragraph>
+    <Paragraph Number="80" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="22" Title=""/>
+      <Text>INT. kITCHEN - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Puts pen on counter, standing on end.  Might take several tries.  Close-up of pen And hold.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>To answer that, we need to define what stability means.  So, is this pen stable?</Text>
+    </Paragraph>
+    <Paragraph Number="81" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="22" Title=""/>
+      <Text>INT. gs - eNTERPRISE D</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Pull back from previous scene so that image of pen is on screen.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DATA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>IT would be inappropriate to say that it IS stable since it could fall over at any moment.  And yet it is also inappropriate to say that it’s NOT stable since it’s not falling over.  An interesting dilemma.</Text>
+    </Paragraph>
+    <Paragraph Number="82" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="22" Title=""/>
+      <Text>INT. kITCHEN - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Start zoomed in on pen, and then pull back out into kitchen scene.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The correct answer is that the pen is not VERY stable.  Stability is not a binary variable.  Things aren’t either stable or instable.  Rather, stability is measure of the amount of work required to make a change.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UB</Text>
+      <Text> waves hand at pen to make it fall down.  Then grabs counter and pushes against it.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>It didn’t take a lot of work to change this pen’s state.  So it wasn’t very stable.  On the other hand this counter is very stable since it would take a lot of work to disrupt it.</Text>
+    </Paragraph>
+    <Paragraph Number="83" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="23" Title=""/>
+      <Text>ExT. 1737 TALL PINE WAY - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So something that is hard to change, is stable; while something that is easy to change is instable.</Text>
+    </Paragraph>
+    <Paragraph Number="84" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="23" Title=""/>
+      <Text>INT. gs - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpoCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And so... What would you rather depend upon?  Something that is hard to change, i.e. Stable; or something that is easy to change, i.e. Instable?</Text>
+    </Paragraph>
+    <Paragraph Number="85" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="23" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SheRLOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>It’s perfectly obvious that if you depend on something it should be something that’s hard to change.  After all, when something you depend upon changes, that means extra work for you.  So you depend on things that are so hard for someone else to change that you can be sure it’ll hurt them more than it hurts you! </Text>
+    </Paragraph>
+    <Paragraph Number="86" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="24" Title=""/>
+      <Text>INT. den - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>That last part bears repeating because it defines the economics of change quite nicely.  </Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>If someone changes something that you depend upon, you want that change to hurt them more than it hurts you.</Text>
+    </Paragraph>
+    <Paragraph Number="87" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="24" Title=""/>
+      <Text>EXT. cAR - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And so the Stable Dependencies Principle says that a component may only depend upon components that are more stable than it is.  </Text>
+    </Paragraph>
+    <Paragraph Number="88" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="24" Title=""/>
+      <Text>INT. mAC 128 - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Or to say this a different way, all the dependencies in a component architecture should point in the direction of increasing stability.</Text>
+    </Paragraph>
+    <Paragraph Number="89" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="24" Title=""/>
+      <Text>InT. gS - day</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DANNY DOTNET</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>OK, but how do you know how stable a component is?  I mean there are lots of things that make a component hard to change.  It could be complicated, or written badly, or just really, really big.  What is it that makes a component stable.</Text>
+    </Paragraph>
+    <Paragraph Number="90" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="24" Title=""/>
+      <Text>INT. gs - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Pure dependency.</Text>
+    </Paragraph>
+    <Paragraph Number="91" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="25" Title=""/>
+      <Text>EXT. 1737 TALL PINE WAY - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Spock’s right, it’s all about the dependencies.  If we assume that the code is clean and well structured, then the only thing left is the dependency structure.</Text>
+    </Paragraph>
+    <Paragraph Number="92" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="25" Title=""/>
+      <Text>INT. wHITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Adult.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Consider the component named S in this diagram.  It has many incoming dependencies from other components.  Is it stable, or is it instable.</Text>
+    </Paragraph>
+    <Paragraph Number="93" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="25" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SherLOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>It’s stable you ninny.  If you modify it in any way, you’ll have to check all the other components that depend upon it to see if you’ve broken anything; and that means the change will be hard to make.  A component that is hard to change is stable.</Text>
+    </Paragraph>
+    <Paragraph Number="94" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="25" Title=""/>
+      <Text>INT. WHITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Adult.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>That’s right.  Component S is hard to change because any change we make to it will likely cause changes to all the dependent components.  So component S is stable.</Text>
+    </Paragraph>
+    <Paragraph Number="95" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="25" Title=""/>
+      <Text>INT. iMAC - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">teenager.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now what about component I?  It’s got lots of outgoing dependencies upon other components?</Text>
+    </Paragraph>
+    <Paragraph Number="96" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="26" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">teenager.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Well now son it’s as plain as the nose on your face that component I is as instable as a three legged mule.  After all, they ain’t nothing stopping you from changing it, and any change made to those other components it depends on could force it to change.  That components is easy to change -- hell it’s likely to change.  It’s instable.</Text>
+    </Paragraph>
+    <Paragraph Number="97" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="26" Title=""/>
+      <Text>INT. wHITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">teenager.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Right again.  Component I has no incoming dependencies, so it’s free to change; and those outgoing dependencies are likely to force it to change.  So it’s instable.</Text>
+    </Paragraph>
+    <Paragraph Number="98" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="26" Title=""/>
+      <Text>INT. gS - mars</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Adult.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now let’s look at component S again.  See all those incoming dependencies?  We say that S is responsible to all those dependent components.  What’s more, S has no outgoing dependencies, which means it doesn’t depend on any other components.  Component S is responsible and independent.  It’s an adult.</Text>
+    </Paragraph>
+    <Paragraph Number="99" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="27" Title=""/>
+      <Text>INT. gS - Moon</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">teenager.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But now look at component I.  Nobody depends upon it so its not responsible to any other component.  What’s more, those outgoing dependencies mean that it is </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">depenent</Text>
+      <Text>.  It’s irresponsible and dependent.  It’s a teenager.</Text>
+    </Paragraph>
+    <Paragraph Number="100" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="27" Title=""/>
+      <Text>INT. iMAC - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">ez.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now let’s look at one particular instable teenager.  We’ll call this component </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> because it is our intention that </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> should be easy to change.</Text>
+    </Paragraph>
+    <Paragraph Number="101" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="27" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>RuBY ROD</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Woah</Text>
+      <Text>, man.  I mean -- dude -- like do you really want to make a component that instable?  I mean, isn’t that way bogus?</Text>
+    </Paragraph>
+    <Paragraph Number="102" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="27" Title=""/>
+      <Text>INT. gS - eNTERPRISE D</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DATA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>On the contrary!  We want certain components to be instable because those components will contain the code that we expect to be changing frequently.  </Text>
+    </Paragraph>
+    <Paragraph Number="103" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="27" Title=""/>
+      <Text>INT. WHITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Right.  Anything you put in a stable component is going to be hard to change.  So if there’s something that you need to change frequently, you should put it in an instable component like </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text>.</Text>
+    </Paragraph>
+    <Paragraph Number="104" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="28" Title=""/>
+      <Text>INT. gS - underwater</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">ez</Text>
+      <Text> and H.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now let’s add another component named H.  Look at all those incoming dependencies!  H is an adult.  H is stable.  H is Hard to change.  </Text>
+    </Paragraph>
+    <Paragraph Number="105" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="28" Title=""/>
+      <Text>INT. whITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>H depends on </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">UB</Text>
+      <Text> steals into the scene wearing a cloak and mask, and conjures a red arrow on the board from H to </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text>.  Then he skulks away.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Parenthetical">
+      <Text>(voiceover)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But now watch what happens as this evil programmer modifies the source code within H and causes it to mention </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ’s</Text>
+      <Text> name.  What has he done to poor </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text>?</Text>
+    </Paragraph>
+    <Paragraph Number="106" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="28" Title=""/>
+      <Text>INT. gS - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>spock</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>He has made </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> hard to change.</Text>
+    </Paragraph>
+    <Paragraph Number="107" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="28" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SheRLOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>It is the perversity of software that someone can completely disrupt your maintenance characteristics simply by mentioning your name.</Text>
+    </Paragraph>
+    <Paragraph Number="108" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="28" Title=""/>
+      <Text>INT. Den - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And that is why we don’t want adults depending on teenagers.  Instable components should depend upon stable components.  All the dependency arrows should point in the direction of increasing stability.</Text>
+    </Paragraph>
+    <Paragraph Alignment="Left" FirstIndent="0.00" Label="S5" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="Yes" Type="General">
+      <Text>Segment 5 - The I Metric.</Text>
+    </Paragraph>
+    <Paragraph Number="109" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="29" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DANNY DOTNET</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>OK, but you still haven’t told us how we know which components are more stable than others.  We need some way to compare the relative stability of components.  We need a number.</Text>
+    </Paragraph>
+    <Paragraph Number="110" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="29" Title=""/>
+      <Text>INT. gs - cLASSROOM</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Component </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">C.graffle</Text>
+      <Text>.  </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Hilight</Text>
+      <Text> the three upper arrows in time, then let </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ca</Text>
+      <Text>=3 appear in time.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ja</Text>
+      <Text>, we need a number.  And we can get that number by counting the dependencies between the components.  In this diagram we see the components and the classes that they contain.  Now, let us say that we want to know the stability of component C.  We can count the number of classes outside of C that depend upon classes inside of C.  We’ll call that number </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ca</Text>
+      <Text> for Afferent Couplings.  And we count three of them.  So </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ca</Text>
+      <Text> is 3.</Text>
+    </Paragraph>
+    <Paragraph Number="111" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="29" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>That feller is </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">gonna</Text>
+      <Text> blow his brains out of his ears if he keeps using all those high and mighty words.  Afferent couplings?  Afferent </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Coupings</Text>
+      <Text>?   That sounds like some nervous disorder in trains?  Hell, son, why </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">dont</Text>
+      <Text> you just call it Fan-in.  The fan-in of C is 3.</Text>
+    </Paragraph>
+    <Paragraph Number="112" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="29" Title=""/>
+      <Text>INT. GS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Component C </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">ce.graffle</Text>
+      <Text>.  Highlight lower arrows in time, and make </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ce</Text>
+      <Text> appear in time. </Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The next thing we are going to count is the number of classes outside of C that classes within C depend upon.  We’ll call this number </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ce</Text>
+      <Text> for Efferent Couplings.  And we count 2.</Text>
+    </Paragraph>
+    <Paragraph Number="113" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="30" Title=""/>
+      <Text>INT. GS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>God save us from smart people at blackboards.  I mean why in hell would you use a nice short word like fan-out when you can use a big fancy mouthful of a word like Efferent Couplings.  Call it fan-out, son; that’s what it is.  It’s the fan-out of C.</Text>
+    </Paragraph>
+    <Paragraph Number="114" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="30" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Component C </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">I.graffle</Text>
+      <Text> the final = 2/5 appears at end in time.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now we take the ratio of </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ce</Text>
+      <Text> to the sum of </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ce</Text>
+      <Text> and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Ca</Text>
+      <Text> to give us a number called I.  I will be zero if the component is stable, and 1 if it is unstable.  In the case of C, I is 2/5.  </Text>
+    </Paragraph>
+    <Paragraph Number="115" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="30" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">cipher.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Well that just tears it.  Who can make any sense out of all those eye’s and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">eee’s</Text>
+      <Text> and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Cee’s</Text>
+      <Text> and ratios and...  Look, this here’s real simple.  Take a gander at this here cipher.  If they ain’t no fan out but their is fan in, then we got a stable adult, and so its’ NOT instable.  That’s what he means when he says that I is zero.  But </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">lookee</Text>
+      <Text> here.  If </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">theys</Text>
+      <Text> fan out, but no fan in, why then we’ve got an instable teenager right?, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">and</Text>
+      <Text>, look: I is one.  </Text>
+    </Paragraph>
+    <Paragraph Number="116" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="31" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>I believe that’s what I said.</Text>
+    </Paragraph>
+    <Paragraph Number="117" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="31" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Son, you’ve got a lot to learn about making things simple for people to understand.  But answer me this, Albert, why in the devil’s suspenders did you call this metric I?  Why didn’t you call it S?  You could have jiggered around with that </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">thar</Text>
+      <Text> formula to make is so that S would be 1 for stable and 0 for instable.  </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Why’dja</Text>
+      <Text> make it I?</Text>
+    </Paragraph>
+    <Paragraph Number="118" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="31" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Ah, yes, that.  It turns out that I is much more convenient, later when we perform the abstraction analysis and compute the optimal distance factor.  </Text>
+    </Paragraph>
+    <Paragraph Number="119" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="31" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>EnGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Parenthetical">
+      <Text>(shaking head)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Never mind, Albert old son, never mind.  I don’t really want to hear it ‘n neither to the good folks out there.  </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Jehosephat</Text>
+      <Text>!</Text>
+    </Paragraph>
+    <Paragraph Number="120" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="31" Title=""/>
+      <Text>EXT. cAR - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Anyway, that’s how you compute I, the instability metric.  And now we can rephrase the Stable Dependencies Principle to say that the source of a component dependency should have a higher I than the target.  In other words the arrows point in the direction of decreasing I.</Text>
+    </Paragraph>
+    <Paragraph Number="121" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="32" Title=""/>
+      <Text>INT. wHITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>H and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> with </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">I.graffle</Text>
+      <Text> Flash the arrow between H and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text>.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And if you look at our </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> and H problem you can see that H started with a I metric of zero, and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> had no dependencies at all, to which we assign an I metric of 1, and so the evil programmer who hung the dependency from H onto </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> was depending towards _increasing_ I:  violating this principle.</Text>
+    </Paragraph>
+    <Paragraph Number="122" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="32" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>JERRY JAVA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>OK, but what if you’ve already got components that depend in the wrong direction? (Like I do)  How do you fix it?</Text>
+    </Paragraph>
+    <Paragraph Number="123" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="32" Title=""/>
+      <Text>INT. couCH - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>You fix it the same way you break a cycle in the dependency graph.  You either split a component, or use the dependency inversion principle.</Text>
+    </Paragraph>
+    <Paragraph Number="124" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="32" Title=""/>
+      <Text>INT. wHITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">ez</Text>
+      <Text> H and N.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Look.  The reason H depends on </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> is that some class in H depends on some class in </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text>.  We can take that class in </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> and move it out into it’s own component (N) that both </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> and H depend upon.  This leaves </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> with an I metric of 1, The new component N with an I metric of 0, and H with an I metric that is not quite zero.  So all the arrows point in the direction of decreasing I.</Text>
+    </Paragraph>
+    <Paragraph Number="125" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="33" Title=""/>
+      <Text>INT. gS - Panelled Room</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">ez</Text>
+      <Text> and H dip.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Or we can create an interface in H that the class in </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> can implement.  This leaves H with an I metric of zero and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">EZ</Text>
+      <Text> with an I metric of 1.  Again, the arrows point in the direction of decreasing I.</Text>
+    </Paragraph>
+    <Paragraph Number="126" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="33" Title=""/>
+      <Text>INT. den - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>It’s not hard to keep your component dependency structures properly aligned to stability, and when you do you will ensure that those components that you planned to be easy to change, stay easy to change.  </Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Alignment="Left" FirstIndent="0.00" Label="S6" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="Yes" Type="General">
+      <Text>Segment 6 - The Stable Abstractions Principle</Text>
+    </Paragraph>
+    <Paragraph Number="127" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="34" Title=""/>
+      <Text>INT. GS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Bottom.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>JERRY JAVA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Gosh, Uncle Bob, What about all those adult components at the bottom of the dependency graph.  They’re pretty stable aren’t they.  I mean that makes them really hard to change doesn’t it.  Is that good?</Text>
+    </Paragraph>
+    <Paragraph Number="128" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="34" Title=""/>
+      <Text>INT. oFFICE - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Bottom.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Well, no, it’s not good.  In fact, if we don’t do something about it, it could be very bad because the components at the bottom are going to be extremely difficult to modify, rendering our system inflexible.  </Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But... There is something we can do about it; because the fact that they are hard to modify doesn’t mean they’re hard to extend.</Text>
+    </Paragraph>
+    <Paragraph Type="Transition">
+      <Text>Dramatic Music.  </Text>
+    </Paragraph>
+    <Paragraph Number="129" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="34" Title=""/>
+      <Text>INT. gS - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>KIRK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Ah... The Open Closed Principle.  The Open Closed Principle!</Text>
+    </Paragraph>
+    <Paragraph Number="130" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="34" Title=""/>
+      <Text>INT. gS - ENTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Indeed, captain.  A module that is closed for modification may still be open for extension.</Text>
+    </Paragraph>
+    <Paragraph Number="131" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="35" Title=""/>
+      <Text>EXT. 1737 TALL PINE WAY - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And that’s the key to it.  There’s no way to avoid those adult components at the bottom of the dependency graph.  But if we design those components properly, we can make sure that although they are closed for modification, they remain open for extension.</Text>
+    </Paragraph>
+    <Paragraph Number="132" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="35" Title=""/>
+      <Text>INT. GS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SherLOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And do you remember how, in Episode 10, we learned to create software modules that conform to the Open Closed Principle?  Do you?  You conform to the Open Closed Principle with Abstraction!  It is the classes that are abstract that are open for extension, even though they are closed for modification.</Text>
+    </Paragraph>
+    <Paragraph Number="133" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="35" Title=""/>
+      <Text>INT. whITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>“The Stable Abstractions Principle (SAP)” on whiteboard.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And so we have our final principle; the Stable Abstractions Principle, which says that the more stable a component is, the more abstract it should be.</Text>
+    </Paragraph>
+    <Paragraph Number="134" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="35" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Bottom.graffle</Text>
+      <Text>, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">hilight</Text>
+      <Text> the components in time. </Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So all those stable adults gathered at the bottom of that there dependency graph should be as abstract as a the Sun on a rainy day.  And all those instable teenagers at the top of the graph, well they should be as concrete as a month old cow pie.</Text>
+    </Paragraph>
+    <Paragraph Number="135" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="36" Title=""/>
+      <Text>INT. cAR - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>All of this makes perfect sense when you think about it.  The concrete stuff goes at the top because it’s instable and likely to change.  All the abstract classes and interfaces go at the bottom where they can afford to be stable, because they aren’t very likely to change.  </Text>
+    </Paragraph>
+    <Paragraph Number="136" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="36" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DANNY DOTNET</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But wait a minute, Uncle Bob.  You said that a component should be _as_ abstract as it is stable.  You told us that stability isn’t binary.  Your I metric goes from zero to 1 and can take any value in between.  But abstraction is boolean isn’t it?  I mean a class is either abstract or it’s not.</Text>
+    </Paragraph>
+    <Paragraph Number="137" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="36" Title=""/>
+      <Text>INT. wSL - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>That’s true.  But a component is composed of many classes, some of which may be abstract, and others may be complete.  So we can measure the abstractness of a component by counting both kinds of classes and taking the ratio.</Text>
+    </Paragraph>
+    <Paragraph Number="138" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="36" Title=""/>
+      <Text>INT. gs - cLASSROOM</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Abstractness.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Indeed, the abstractness of a component is the simple ratio of the number of abstract classes in the component to the total number of classes in the component.  This is a metric that goes from zero to 1.</Text>
+    </Paragraph>
+    <Paragraph Number="139" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="37" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now let’s try this.  Let’s say you got a component with ten classes in it, 3 of those classes are interfaces and 2 more are just plain old abstract classes.  That means you’ve got 5 abstractions in a 10 class component. That’s half, son.  So the abstractness of that component is 0.5.  One half.  Even </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">stephen</Text>
+      <Text>.  </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Kapish</Text>
+      <Text>?</Text>
+    </Paragraph>
+    <Paragraph Number="140" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="37" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>RuBY ROD</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Like, dude, my mind is like way blown.  I mean, wow.  But look, man, I mean how do make sure your components are AS abstract as the are stable?</Text>
+    </Paragraph>
+    <Paragraph Number="141" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="37" Title=""/>
+      <Text>INT. iMAC - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>equation.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>A+I=1.  Right?  I mean, consider an adult.  Stable and Abstract.  I=0 and A=1.  A+I=1.  Or how about a teenager. Instable and concrete. I=1 and A=0.  A+I=1.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Or think of it this way.  The bigger A gets the smaller I gets.  The bigger I gets the smaller A gets.  </Text>
+    </Paragraph>
+    <Paragraph Number="142" Type="Scene Heading">
+      <SceneProperties Length="1/8" Page="37" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>JERRY JAVA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>You really do that?</Text>
+    </Paragraph>
+    <Paragraph Number="143" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="38" Title=""/>
+      <Text>INT. gS - fantasyland</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Sure.  I mean, well, No.  I mean -- look, if I’m working in a system that I’m really familiar with, then I can just eyeball it.  I can visualize the component dependency graph and realize that the stuff at the top is concrete and the stuff at the bottom is abstract.  I don’t have to work the numbers because I can “feel” them.</Text>
+    </Paragraph>
+    <Paragraph Number="144" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="38" Title=""/>
+      <Text>INT. GS - DESERT</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But if I’m called in to audit or review some large system, then -- sure -- I run the numbers.  Because those numbers will give me a clue about the structure of the system.</Text>
+    </Paragraph>
+    <Paragraph Number="145" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="38" Title=""/>
+      <Text>INT. den - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>I mean, consider what it means if A+I does not equal 1.  What it means is that either there are lots of concrete classes with incoming dependencies, or there are lots of abstract classes with no incoming dependencies.  In either case that’s a violation of the Dependency Inversion Principle  </Text>
+    </Paragraph>
+    <Paragraph Number="146" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="38" Title=""/>
+      <Text>INT. GS - CLASSROOM</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SHerLOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And you remember Episode 13 don’t you?  You remember that the Dependency Inversion Principle told us that dependencies should point towards abstractions and not towards concretions, don’t you?</Text>
+    </Paragraph>
+    <Paragraph Number="147" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="38" Title=""/>
+      <Text>INT. oFFICE - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>equation.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And so The Stable Abstractions Principle: A+I=1, is a numerical indication of how well your component structure conforms to the Dependency Inversion Principle.</Text>
+    </Paragraph>
+    <Paragraph Alignment="Left" FirstIndent="0.00" Label="S7" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="Yes" Type="General">
+      <Text>Segment 7 - Distance.</Text>
+    </Paragraph>
+    <Paragraph Number="148" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="40" Title=""/>
+      <Text>INT. gs - clASSROOM</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>A-I </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Graph.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Now I want you to look at this graph.  It is a plot of Abstractness and Instability, A </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">vs</Text>
+      <Text>. I.  Abstractness is on the vertical axis, and Instability is on the Horizontal axis.  Notice that the graph forms a square since each of the two </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">metrics</Text>
+      <Text> goes from zero to one.  You can see the Adult position at the top left, and the teenager position at the bottom right.  These are the two extreme cases where A+I=1.  But what about the other two corners?</Text>
+    </Paragraph>
+    <Paragraph Number="149" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="40" Title=""/>
+      <Text>INT. gS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>A-I </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Graph.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Well now </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Bucko</Text>
+      <Text>, that top right corner is a </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">wierdo</Text>
+      <Text>, because up their ya got abstract classes what </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">aint</Text>
+      <Text> got no dependencies on ‘em.  And that’s about as useful as a three legged mule.  So I don’t want to see any components going off in that direction because anything approaching that corner is useless.</Text>
+    </Paragraph>
+    <Paragraph Number="150" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="40" Title=""/>
+      <Text>INT. wsr - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>A-I Graph.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Right.  The upper right corner is the zone of uselessness.  It’s interfaces and abstract classes without implementations.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps">CONT’D</Text>
+      <Text>)</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But then what about the lower left corner.  The components there are concrete and heavily depended upon.  What would you call that?</Text>
+    </Paragraph>
+    <Paragraph Number="151" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="41" Title=""/>
+      <Text>INT. GS - HELL</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SATAN</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>That’s the zone of pain!  </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Muahahahhaha</Text>
+      <Text>!</Text>
+    </Paragraph>
+    <Paragraph Number="152" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="41" Title=""/>
+      <Text>INT. wsl - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>A-I </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Graph.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Yes.  Pain.  Think of what’s down here.  Things like Database </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">schemas</Text>
+      <Text>.  Concrete.  Heavily depended upon.  Fun to change.  We don’t want our components moving in that direction!</Text>
+    </Paragraph>
+    <Paragraph Number="153" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="41" Title=""/>
+      <Text>INT. gS - cLASSROOM</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>A-I Graph.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>AlBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Of course not everything in that corner is painful.  String, and Vector, for example.  Very concrete, everybody uses them, but not painful.  But that’s because they don’t change.  They aren’t volatile.  You see, there’s another axis to this graph, the axis of volatility...</Text>
+    </Paragraph>
+    <Paragraph Number="154" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="41" Title=""/>
+      <Text>INT. gs - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>There he goes again, blathering on about some </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">hi-falutin</Text>
+      <Text> technical jargon, </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">axees</Text>
+      <Text> and </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">vol-a-tiles</Text>
+      <Text>.  What he’s </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">tryin’</Text>
+      <Text> to say is that we aren’t worried ‘bout library components that ain’t </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">changin’</Text>
+      <Text>.  The components we want to keep out of that painful corner are the ones that are changing a lot because we are developing them right now.</Text>
+    </Paragraph>
+    <Paragraph Number="155" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="42" Title=""/>
+      <Text>INT. whITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>A-I </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Graph.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So we’d like to keep our components as far away from those two bad corners as we can get them.  As it turns out, that means our components should fall on this line, where A+I=1.  The points on this line are as far from the bad corners as they can get.  </Text>
+    </Paragraph>
+    <Paragraph Number="156" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="42" Title=""/>
+      <Text>INT. GS - SPACE</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>A-I </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Graph.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>I call that line, the main sequence.  Chuckle.
+</Text>
+    </Paragraph>
+    <Paragraph Number="157" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="42" Title=""/>
+      <Text>INT. gs - CLASSROOM</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>A-I </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Graph.graffle</Text>
+      <Text> on left.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Distance.graffle</Text>
+      <Text> on right.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ALBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And so, what do we do with a component that sits off the main sequence?  How can we evaluate it?  We can measure it’s distance from the main sequence.  That distance is just D = |A+</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">I-1</Text>
+      <Text>|.  Once again, this is a number that goes from zero to 1.  Zero means on the main sequence.  One means as far from the main sequence as you can get.</Text>
+    </Paragraph>
+    <Paragraph Number="158" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="42" Title=""/>
+      <Text>INT. gs - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Distance.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Fascinating. A single numerical indicator of conformance to the Dependency Inversion Principle.  I imagine that could prove to be quite useful.</Text>
+    </Paragraph>
+    <Paragraph Number="159" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="43" Title=""/>
+      <Text>INT. dEn - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Yes, in certain situations it certainly can.  For example you can track all the D </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">metrics</Text>
+      <Text> for your components over time.  If a component’s D metric veers away from zero, you know some kind of rot is building up inside that component.  Either there are concrete classes that are being depended upon, or abstract classes that becoming useless.</Text>
+    </Paragraph>
+    <Paragraph Number="160" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="43" Title=""/>
+      <Text>InT. wHITEBOARD - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">DistanceStat.graffle</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Or you can plot all your components on the A-I graph, and look for statistical outliers.  Something bad is probably happening in those that are more than a standard deviation from the mean.</Text>
+    </Paragraph>
+    <Paragraph Number="161" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="43" Title=""/>
+      <Text>EXT. 1737 TALL PINE WAY - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>But in reality, I don’t calculate these metrics on a regular basis.  Like I said before, in systems that I am working on, I can “feel” whether things are in balance or not.  On the other hand, when evaluating systems I’m not immediately familiar with, these metrics can come in pretty handy.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Type="General">
+      <Text></Text>
+    </Paragraph>
+    <Paragraph Alignment="Left" FirstIndent="0.00" Label="S8" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="Yes" Type="General">
+      <Text>Segment 8 - Conclusion</Text>
+    </Paragraph>
+    <Paragraph Number="162" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="44" Title=""/>
+      <Text>INT. kITCHEN - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So that’s it.  Those are the component principles.  Let’s look back on them to see how far we’ve come.
+</Text>
+    </Paragraph>
+    <Paragraph Number="163" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="44" Title=""/>
+      <Text>INT. GS - ENTERPRISE D</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Scenes from </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">E15</Text>
+      <Text> on screen.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>DatA</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>In episode 15 we discussed the history and nature of components.  And we learned why our systems should be based upon plug-in structures of independently deployable components.</Text>
+    </Paragraph>
+    <Paragraph Number="164" Type="Scene Heading">
+      <SceneProperties Length="3/8" Page="44" Title=""/>
+      <Text>INT. gS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Scenes from </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">E16</Text>
+      <Text> on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SHERLOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Then in Episode 16 we learned about the three principles of component cohesion.  These told us what kinds of classes to group together into components, and which classes should be separated into different components.</Text>
+    </Paragraph>
+    <Paragraph Number="165" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="44" Title=""/>
+      <Text>INT. GS - ENTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>Principle names on screen.  </Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>SpOCK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>In this episode we learned the three principles of component coupling.  The Acyclic Dependencies Principle, the Stable Dependencies Principle, and the Stable Abstractions Principles.</Text>
+    </Paragraph>
+    <Paragraph Number="166" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="45" Title=""/>
+      <Text>INT. GS - lAB</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>“The Acyclic Dependencies Principle (ADP)” on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>AlBERT</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The Acyclic Dependencies Principle told us that in order for to avoid the Morning After Syndrome, and build systems that are releasable and buildable the dependency structure of our components should form a Directed Acyclic Graph.</Text>
+    </Paragraph>
+    <Paragraph Number="167" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="45" Title=""/>
+      <Text>INT. gS - DAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>“The Stable Dependencies Principle (</Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">SDP</Text>
+      <Text>)” on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>ENGINEER</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>The Stable Dependencies Principle told us that stable components are hard to change because they are depended upon, and that component dependencies should always point in the direction of stability.</Text>
+    </Paragraph>
+    <Paragraph Number="168" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="45" Title=""/>
+      <Text>INT. GS - eNTERPRISE 1701</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>“The Stable Abstractions Principle (SAP)” on wall.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>KIRK</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>Finally, the Stable Abstractions principle told us that our components should be as Abstract as they are stable.</Text>
+    </Paragraph>
+    <Paragraph Number="169" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="45" Title=""/>
+      <Text>INT. GS - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>RuBY ROD</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>And, man, like, we really learned a lot of numbers and graph-like </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">thingies</Text>
+      <Text> too.   Cool.  Uh, but, like, how do I use all this?</Text>
+    </Paragraph>
+    <Paragraph Number="170" Type="Scene Heading">
+      <SceneProperties Length="2/8" Page="45" Title=""/>
+      <Text>EXT. 1737 TALL PINE WAY - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>How indeed?  Just think what we’ve learned over the last 17 episodes?  From function structure, to test driven development.  From architecture to </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">OO</Text>
+      <Text> design principles.  From comments to components.</Text>
+    </Paragraph>
+    <Paragraph Number="171" Type="Scene Heading">
+      <SceneProperties Length="4/8" Page="46" Title=""/>
+      <Text>INT. FROnt Door - dAY</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text>With dogs.</Text>
+    </Paragraph>
+    <Paragraph Type="Character">
+      <Text>UNCLE BOB</Text>
+    </Paragraph>
+    <Paragraph Type="Dialogue">
+      <Text>So it’s about time we put this all together into a real software design.  It’s time we wrote an application.  
+
+I know we’ve got lots of other things to talk about.  Advanced </Text>
+      <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">TDD</Text>
+      <Text>, Design Patterns, Professionalism, Acceptance Tests, Functional Programming...  The list is daunting. 
+
+But you aren’t going to want to miss the next exciting episode of Clean Code.  Episode 18: The Component Case Study.</Text>
+    </Paragraph>
+    <Paragraph Type="Action">
+      <Text></Text>
+    </Paragraph>
+  </Content>
+
+  <HeaderAndFooter FooterFirstPage="Yes" FooterVisible="Yes" HeaderFirstPage="Yes" HeaderVisible="Yes" StartingPage="1">
+    <Header>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.25" RightIndent="-1.00" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">E17 - Component Coupling	</Text>
+        <DynamicLabel Type="Last Revised"/>
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">	</Text>
+        <DynamicLabel Type="Page #"/>
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">.</Text>
+        <Tabstops>
+          <Tabstop Position="4.50" Type="Center"/>
+          <Tabstop Position="7.25" Type="Right"/>
+        </Tabstops>
+      </Paragraph>
+    </Header>
+    <Footer>
+      <Paragraph Alignment="Right" FirstIndent="0.00" Leading="Regular" LeftIndent="1.25" RightIndent="-1.25" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <DynamicLabel Type="Date"/>
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">                                         </Text>
+        <DynamicLabel Type="Label"/>
+      </Paragraph>
+    </Footer>
+  </HeaderAndFooter>
+
+  <SpellCheckIgnoreLists>
+    <IgnoredRanges/>
+    <IgnoredWords/>
+  </SpellCheckIgnoreLists>
+
+  <PageLayout BackgroundColor="#FFFFFFFFFFFF" BottomMargin="72" BreakDialogueAndActionAtSentences="Yes" DocumentLeading="Normal" FooterMargin="36" ForegroundColor="#000000000000" HeaderMargin="36" InvisiblesColor="#808080808080" TopMargin="72" UsesSmartQuotes="Yes">
+    <AutoCastList AddParentheses="Yes" AutomaticallyGenerate="No" CastListElement="Cast List"/>
+  </PageLayout>
+
+  <WindowState Height="970" Left="482" Mode="Normal" Top="148" Width="912"/>
+
+  <TextState Scaling="150" Selection="44467,44467" ShowInvisibles="No"/>
+
+  <UserDocumentData>
+		  <com.finaldraft.Final-Draft-Writer-Revisions ShowPageColor="No"/>
+	</UserDocumentData>
+
+  <ElementSettings Type="General">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""/>
+    <ParagraphSpec Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="General" ReturnKey="General" Shortcut="0"/>
+  </ElementSettings>
+
+  <ElementSettings Type="Scene Heading">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps"/>
+    <ParagraphSpec Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="24" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="Scene Heading" ReturnKey="Action" Shortcut="1"/>
+  </ElementSettings>
+
+  <ElementSettings Type="Action">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""/>
+    <ParagraphSpec Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="12" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="Action" ReturnKey="Action" Shortcut="2"/>
+  </ElementSettings>
+
+  <ElementSettings Type="Character">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps"/>
+    <ParagraphSpec Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="3.50" RightIndent="7.25" SpaceBefore="12" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="Character" ReturnKey="Dialogue" Shortcut="3"/>
+  </ElementSettings>
+
+  <ElementSettings Type="Parenthetical">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""/>
+    <ParagraphSpec Alignment="Left" FirstIndent="-0.10" Leading="Regular" LeftIndent="3.00" RightIndent="5.50" SpaceBefore="0" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="Parenthetical" ReturnKey="Dialogue" Shortcut="4"/>
+  </ElementSettings>
+
+  <ElementSettings Type="Dialogue">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""/>
+    <ParagraphSpec Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="2.50" RightIndent="6.00" SpaceBefore="0" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="Dialogue" ReturnKey="Action" Shortcut="5"/>
+  </ElementSettings>
+
+  <ElementSettings Type="Transition">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps"/>
+    <ParagraphSpec Alignment="Right" FirstIndent="0.00" Leading="Regular" LeftIndent="5.50" RightIndent="7.10" SpaceBefore="12" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="Transition" ReturnKey="Scene Heading" Shortcut="6"/>
+  </ElementSettings>
+
+  <ElementSettings Type="Shot">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps"/>
+    <ParagraphSpec Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="24" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="Scene Heading" ReturnKey="Action" Shortcut="7"/>
+  </ElementSettings>
+
+  <ElementSettings Type="Cast List">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="AllCaps"/>
+    <ParagraphSpec Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.50" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No"/>
+    <Behavior PaginateAs="Action" ReturnKey="Action" Shortcut="8"/>
+  </ElementSettings>
+
+  <TitlePage>
+    <HeaderAndFooter FooterFirstPage="Yes" FooterVisible="No" HeaderFirstPage="No" HeaderVisible="Yes" StartingPage="1">
+      <Header>
+        <Paragraph Alignment="Right" FirstIndent="0.00" Leading="Regular" LeftIndent="1.25" RightIndent="-1.25" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+          <DynamicLabel Type="Page #"/>
+          <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">.</Text>
+        </Paragraph>
+      </Header>
+      <Footer>
+        <Paragraph Alignment="Right" FirstIndent="0.00" Leading="Regular" LeftIndent="1.25" RightIndent="-1.25" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+          <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+        </Paragraph>
+      </Footer>
+    </HeaderAndFooter>
+    <Content>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="-1" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="Underline+AllCaps">E16</Text>
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="Underline+AllCaps"> Granularity</Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Written by</Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Robert C. Martin</Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">(Uncle Bob)</Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Center" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Left" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""></Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Address</Text>
+      </Paragraph>
+      <Paragraph Alignment="Full" FirstIndent="0.00" Leading="Regular" LeftIndent="1.00" RightIndent="7.50" SpaceBefore="0" Spacing="1" StartsNewPage="No">
+        <Text AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style="">Phone Number</Text>
+      </Paragraph>
+    </Content>
+    <TextState Scaling="100" Selection="125,125" ShowInvisibles="No"/>
+  </TitlePage>
+
+  <ScriptNoteDefinitions Active="1">
+    <ScriptNoteDefinition Color="#000000000000" ID="1" Marker="!" Name="Important"/>
+    <ScriptNoteDefinition Color="#000000000000" ID="2" Marker="?" Name="Information"/>
+    <ScriptNoteDefinition Color="#000000000000" ID="3" Marker="*" Name="Suggestion"/>
+  </ScriptNoteDefinitions>
+
+  <SmartType>
+    <Characters>
+      <Character>Albert</Character>
+      <Character>Chief</Character>
+      <Character>Danny Dotnet</Character>
+      <Character>Data</Character>
+      <Character>Engineer</Character>
+      <Character>Family</Character>
+      <Character>Grandchildren</Character>
+      <Character>Jerry java</Character>
+      <Character>Kirk</Character>
+      <Character>Monk</Character>
+      <Character>Rod Serling</Character>
+      <Character>Satan</Character>
+      <Character>Shady Street Salesman</Character>
+      <Character>Sherlock</Character>
+      <Character>Spock</Character>
+      <Character>Spy</Character>
+      <Character>Uncle Bob</Character>
+      <Character>Doctor</Character>
+      <Character>Ruby Rod</Character>
+    </Characters>
+    <Extensions/>
+    <SceneIntros Separator=". ">
+      <SceneIntro>EXT</SceneIntro>
+      <SceneIntro>INT</SceneIntro>
+    </SceneIntros>
+    <Locations>
+      <Location>1737 Tall Pine Way</Location>
+      <Location>BASEMENT BATHROOM</Location>
+      <Location>Brooks Home</Location>
+      <Location>car</Location>
+      <Location>couch</Location>
+      <Location>Deck</Location>
+      <Location>Den</Location>
+      <Location>exercize Bike</Location>
+      <Location>FIREPLACE</Location>
+      <Location>Front Door</Location>
+      <Location>GREAT ROOM</Location>
+      <Location>GS</Location>
+      <Location>HOBBY ROOM</Location>
+      <Location>imac</Location>
+      <Location>kitchen</Location>
+      <Location>mac 128</Location>
+      <Location>massage Chair</Location>
+      <Location>MASTER BATH</Location>
+      <Location>OFFICE</Location>
+      <Location>Powder room</Location>
+      <Location>Screen Porch</Location>
+      <Location>SUN ROOM</Location>
+      <Location>voiceover</Location>
+      <Location>whiteboard</Location>
+      <Location>WSL</Location>
+      <Location>WSR</Location>
+    </Locations>
+    <TimesOfDay Separator=" - ">
+      <TimeOfDay>classroom</TimeOfDay>
+      <TimeOfDay>DAY</TimeOfDay>
+      <TimeOfDay>Enterprise 1701</TimeOfDay>
+      <TimeOfDay>Enterprise D</TimeOfDay>
+      <TimeOfDay>Hell</TimeOfDay>
+      <TimeOfDay>Lab</TimeOfDay>
+      <TimeOfDay>MICROSOFT</TimeOfDay>
+      <TimeOfDay>monastery</TimeOfDay>
+      <TimeOfDay>night</TimeOfDay>
+      <TimeOfDay>Space</TimeOfDay>
+      <TimeOfDay>MINECRAFT</TimeOfDay>
+      <TimeOfDay>MOON</TimeOfDay>
+      <TimeOfDay>UNDERWATER</TimeOfDay>
+      <TimeOfDay>PANELLED ROOM</TimeOfDay>
+      <TimeOfDay>FANTASYLAND</TimeOfDay>
+      <TimeOfDay>DESERT</TimeOfDay>
+      <TimeOfDay>MARS</TimeOfDay>
+    </TimesOfDay>
+    <Transitions>
+      <Transition>Fade out to dream</Transition>
+      <Transition>Gradually increase pixelation</Transition>
+    </Transitions>
+  </SmartType>
+
+  <MoresAndContinueds>
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""/>
+    <DialogueBreaks AutomaticCharacterContinueds="Yes" BottomOfPage="Yes" DialogueBottom="(MORE)" DialogueTop="(CONT'D)" TopOfNext="Yes"/>
+    <SceneBreaks ContinuedNumber="No" SceneBottom="(CONTINUED)" SceneBottomOfPage="No" SceneTop="CONTINUED:" SceneTopOfNext="No"/>
+  </MoresAndContinueds>
+
+  <LockedPages/>
+
+  <Revisions ActiveSet="1" Location="7.75" RevisionMode="No" RevisionsShown="Active" ShowAllMarks="No" ShowAllSets="No">
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="1" Mark="*" Name="Blue" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="2" Mark="*" Name="Pink" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="3" Mark="*" Name="Yellow" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="4" Mark="*" Name="Green" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="5" Mark="*" Name="Goldenrod" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="6" Mark="*" Name="Buff" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="7" Mark="*" Name="Salmon" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="8" Mark="*" Name="Cherry" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="9" Mark="*" Name="Tan" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="10" Mark="*" Name="2nd White" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="11" Mark="*" Name="2nd Blue" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="12" Mark="*" Name="2nd Pink" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="13" Mark="*" Name="2nd Yellow" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="14" Mark="*" Name="2nd Green" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="15" Mark="*" Name="2nd Goldenrod" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="16" Mark="*" Name="2nd Buff" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="17" Mark="*" Name="2nd Salmon" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="18" Mark="*" Name="2nd Cherry" Style=""/>
+    <Revision Color="#00000000FFFF" FullRevision="No" ID="19" Mark="*" Name="2nd Tan" Style=""/>
+  </Revisions>
+
+  <SplitState ActivePanel="1" SplitMode="None" SplitterPosition="0">
+    <ScriptPanel DisplayMode="Normal">
+      <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Verdana" RevisionID="0" Size="9" Style=""/>
+    </ScriptPanel>
+  </SplitState>
+
+  <Macros>
+    <Macro Element="Scene Heading" Name="INT" Shortcut="Ctrl+Alt+1" Text="INT. " Transition="None">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Scene Heading" Name="EXT" Shortcut="Ctrl+Alt+2" Text="EXT. " Transition="None">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Scene Heading" Name="I/E" Shortcut="Ctrl+Alt+3" Text="I/E " Transition="None">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Scene Heading" Name="DAY" Shortcut="Ctrl+Alt+4" Text=" - DAY" Transition="Action">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Scene Heading" Name="NIGHT" Shortcut="Ctrl+Alt+5" Text=" - NIGHT" Transition="Action">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Scene Heading" Name="SUNRISE" Shortcut="Ctrl+Alt+6" Text=" - SUNRISE" Transition="Action">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Scene Heading" Name="MAGIC" Shortcut="Ctrl+Alt+7" Text=" - MAGIC" Transition="Action">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Parenthetical" Name="CONT" Shortcut="Ctrl+Alt+8" Text="continuing" Transition="Dialogue">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Parenthetical" Name="INTER" Shortcut="Ctrl+Alt+9" Text="interrupting" Transition="Dialogue">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="None" Name="" Shortcut="Ctrl+Alt+0" Text="" Transition="None">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Transition" Name="CUTTO" Shortcut="Ctrl+Shift+Alt+1" Text="CUT TO:" Transition="Scene Heading">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Action" Name="FADEIN" Shortcut="Ctrl+Shift+Alt+2" Text="FADE IN:" Transition="Scene Heading">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Transition" Name="FADEOUT" Shortcut="Ctrl+Shift+Alt+3" Text="FADE OUT." Transition="Scene Heading">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Transition" Name="FADETO" Shortcut="Ctrl+Shift+Alt+4" Text="FADE TO:" Transition="Scene Heading">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Transition" Name="DISSLV" Shortcut="Ctrl+Shift+Alt+5" Text="DISSOLVE TO:" Transition="Scene Heading">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Transition" Name="BACKTO" Shortcut="Ctrl+Shift+Alt+6" Text="BACK TO:" Transition="Scene Heading">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Transition" Name="MATCHCUT" Shortcut="Ctrl+Shift+Alt+7" Text="MATCH CUT TO:" Transition="Scene Heading">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Transition" Name="JUMPCUT" Shortcut="Ctrl+Shift+Alt+8" Text="JUMP CUT TO:" Transition="Scene Heading">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="Transition" Name="FBLACK" Shortcut="Ctrl+Shift+Alt+9" Text="FADE TO BLACK." Transition="None">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+    <Macro Element="None" Name="" Shortcut="E" Text="" Transition="None">
+      <Alias Confirm="No" MatchCase="No" SmartReplace="Yes" Text="" WordOnly="No">
+        <ActivateIn Element="General"/>
+        <ActivateIn Element="Scene Heading"/>
+        <ActivateIn Element="Action"/>
+        <ActivateIn Element="Character"/>
+        <ActivateIn Element="Parenthetical"/>
+        <ActivateIn Element="Dialogue"/>
+        <ActivateIn Element="Transition"/>
+        <ActivateIn Element="Shot"/>
+      </Alias>
+    </Macro>
+  </Macros>
+
+  <Actors>
+    <Actor MacVoice="" Name="Man 1" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Man 2" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Woman 1" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Woman 2" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Boy 1" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Boy 2" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Girl 1" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Girl 2" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Old Man" Pitch="Normal" Speed="Medium" WinVoice=""/>
+    <Actor MacVoice="" Name="Old Woman" Pitch="Normal" Speed="Medium" WinVoice=""/>
+  </Actors>
+
+  <Cast>
+    <Narrator Actor="Man 1">
+      <Element Type="Character"/>
+      <Element Type="Dialogue"/>
+    </Narrator>
+    <Member Actor="Man 1" Character="Albert"/>
+    <Member Actor="Man 1" Character="Chief"/>
+    <Member Actor="Man 1" Character="Danny Dotnet"/>
+    <Member Actor="Man 1" Character="Data"/>
+    <Member Actor="Man 1" Character="Engineer"/>
+    <Member Actor="Man 1" Character="Family"/>
+    <Member Actor="Man 1" Character="Grandchildren"/>
+    <Member Actor="Man 1" Character="Jerry java"/>
+    <Member Actor="Man 1" Character="Kirk"/>
+    <Member Actor="Man 1" Character="Monk"/>
+    <Member Actor="Man 1" Character="Rod Serling"/>
+    <Member Actor="Man 1" Character="Satan"/>
+    <Member Actor="Man 1" Character="Shady Street Salesman"/>
+    <Member Actor="Man 1" Character="Sherlock"/>
+    <Member Actor="Man 1" Character="Spock"/>
+    <Member Actor="Man 1" Character="Spy"/>
+    <Member Actor="Man 1" Character="Uncle Bob"/>
+    <Member Actor="Man 1" Character="Doctor"/>
+    <Member Actor="Man 1" Character="Ruby Rod"/>
+  </Cast>
+
+  <SceneNumberOptions LeftLocation="0.75" RightLocation="7.38" ShowNumbersOnLeft="Yes" ShowNumbersOnRight="Yes">
+    <FontSpec AdornmentStyle="0" Background="#FFFFFFFFFFFF" Color="#000000000000" Font="Courier Final Draft" RevisionID="0" Size="12" Style=""/>
+  </SceneNumberOptions>
+
+</FinalDraft>
