@@ -33,7 +33,7 @@
       </Paragraph>
       <Paragraph Type=\"Character\">
         <Text>UNCLE BOB (</Text>
-        <Text AdornmentStyle=\"-1\">CONTÕD</Text>
+        <Text AdornmentStyle=\"-1\">CONTï¿½D</Text>
         <Text>)</Text>
       </Paragraph>
       <Paragraph Type=\"Dialogue\">
@@ -43,12 +43,8 @@
   </FinalDraft>
   ")
 
-(def simple-scene {
-  :set "GS"
-  :character "UNCLE BOB"
-  :dialogs "2"
-  :scene "4"
-  :page "2"})
+(def simple-scene
+  (new-scene "GS" "UNCLE BOB" 2 4 2 0))
 
 
 (fact (to-scene-line simple-scene) => "GS\tUNCLE BOB\t2\t4\t2")
@@ -62,7 +58,7 @@
               :attrs nil,
               :content content}]})
 
-(defn parsed-scene [set scene page]
+(defn parsed-scene-raw [set scene page]
   {:tag :Paragraph,
    :attrs {:Number scene,
            :Type "Scene Heading"},
@@ -71,7 +67,10 @@
               :content nil}
              {:tag :Text,
               :attrs nil,
-              :content [(str "INT. " set " - DAY")]}]})
+              :content [set]}]})
+
+(defn parsed-scene [set scene page]
+  (parsed-scene-raw (str "INT. " set " - DAY") scene page))
 
 (defn parsed-tag [tag]
   {:tag tag, :attrs nil, :content nil})
@@ -97,7 +96,7 @@
               :content [(str character " (")]}
              {:tag :Text,
               :attrs {:AdornmentStyle "-1"},
-              :content ["CONTÕD"]}
+              :content ["CONTï¿½D"]}
              {:tag :Text,
               :attrs nil,
               :content [")"]}]})
@@ -112,7 +111,7 @@
 (def parsed-script
   (parsed-finalDraft
     [(parsed-scene "FRONT DOOR" "3" "1")
-     (parsed-tag :gunk)
+     (parsed-tag :gunk )
      (parsed-scene "GS", "4" "2")
      (parsed-action "some action")
      (parsed-actor "UNCLE BOB")
@@ -125,15 +124,29 @@
   (fact "an empty script has no paragraphs"
     (paragraphs-from-script (parsed-finalDraft [])) => [])
 
-  (fact "a script with no scene headings, or characters has no paragraphs"
-    (paragraphs-from-script (parsed-finalDraft [(parsed-tag :gunk)
-                                                (parsed-action "action")
+  (fact "a script with no scene headings, characters, or actions has no paragraphs"
+    (paragraphs-from-script (parsed-finalDraft [(parsed-tag :gunk )
                                                 (parsed-dialog "dialog")])) => [])
 
   (fact "a script with one scene heading gives one scene paragraph"
     (paragraphs-from-script
       (parsed-finalDraft
         [(parsed-scene "GS" 3 2)])) => [(new-scene-head "GS" 3 2)])
+
+  (fact "a scene without a daytime is parsed correctly"
+    (paragraphs-from-script
+      (parsed-finalDraft
+        [(parsed-scene-raw "INT. GS" 3 2)])) => [(new-scene-head "GS" 3 2)])
+
+  (fact "a scene without a int/ext is parsed correctly"
+    (paragraphs-from-script
+      (parsed-finalDraft
+        [(parsed-scene-raw "GS - DAY" 3 2)])) => [(new-scene-head "GS" 3 2)])
+
+  (fact "a scene without a daytime or int/ext is parsed correctly"
+    (paragraphs-from-script
+      (parsed-finalDraft
+        [(parsed-scene-raw "GS" 3 2)])) => [(new-scene-head "GS" 3 2)])
 
   (fact "a script with two scene headings gives two scene paragraphs"
     (paragraphs-from-script
@@ -146,6 +159,11 @@
       (parsed-finalDraft
         [(parsed-actor "UB")])) => [(new-actor "UB")])
 
+  (fact "a script with one action gives an action paragraph"
+    (paragraphs-from-script
+      (parsed-finalDraft
+        [(parsed-action "action")])) => [(new-action "action")])
+
   (fact "a script with scene headings and characters creates paragraphs"
     (paragraphs-from-script
       (parsed-finalDraft
@@ -155,6 +173,7 @@
          (parsed-dialog "dialog")
          (parsed-scene "Desk" 2 1)
          (parsed-actor "Sherlock")])) => [(new-scene-head "Office" 1 1)
+                                          (new-action "some action")
                                           (new-actor "Uncle Bob")
                                           (new-scene-head "Desk" 2 1)
                                           (new-actor "Sherlock")])
@@ -181,31 +200,31 @@
   (fact "a script with just one scene heading yeilds one scene"
     (scenes-from-script
       (parsed-finalDraft
-        [(parsed-scene "WSL" 2 1)])) => [(new-scene "WSL" "" 0 2 1)])
+        [(parsed-scene "WSL" 2 1)])) => [(new-scene "WSL" "" 0 2 1 0)])
 
   (fact "a script with two scene headings yeilds two scenes"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
-         (parsed-scene "WSR" 3 2)])) => [(new-scene "WSL" "" 0 2 1)
-                                         (new-scene "WSR" "" 0 3 2)])
+         (parsed-scene "WSR" 3 2)])) => [(new-scene "WSL" "" 0 2 1 0)
+                                         (new-scene "WSR" "" 0 3 2 0)])
 
   (fact "a script with a scene head and an actor yeilds an acted scene"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
-         (parsed-actor "UB")])) => [(new-scene "WSL" "UB" 1 2 1)])
+         (parsed-actor "UB")])) => [(new-scene "WSL" "UB" 1 2 1 0)])
 
   (fact "a script with more than one actor in a scene will count dialogs"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
          (parsed-actor "UB")
-         (parsed-continued-actor "UB")])) => [(new-scene "WSL" "UB" 2 2 1)]))
+         (parsed-continued-actor "UB")])) => [(new-scene "WSL" "UB" 2 2 1 0)]))
 
 (facts "acceptance tests"
   (fact (scene-lines "script.xml") => ["FRONT DOOR\t\t0\t3\t1"
-                                       "GS\tUNCLE BOB\t2\t4\t2"])
+                                       "GS\tUNCLE BOB\t2\t4\t2\t2"])
 
   (fact (parse "script.xml") => parsed-script)
 

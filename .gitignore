@@ -7,3 +7,6 @@ pom.xml
 *.ipr
 *.iws
 .lein-deps-sum
+.DS_Store
+.lein-repl-history
+
