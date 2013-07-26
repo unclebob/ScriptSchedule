@@ -29,7 +29,7 @@
         <Text>some dialog</Text>
       </Paragraph>
       <Paragraph Type=\"Action\">
-        <Text>another action</Text>
+        <Text>Note: note another action</Text>
       </Paragraph>
       <Paragraph Type=\"Character\">
         <Text>UNCLE BOB (</Text>
@@ -39,12 +39,28 @@
       <Paragraph Type=\"Dialogue\">
         <Text>more dialog</Text>
       </Paragraph>
+      <Paragraph Number=\"5\" Type=\"Scene Heading\">
+        <SceneProperties Page=\"3\"/>
+        <Text>INT. FRONT DOOR - DAY</Text>
+      </Paragraph>
+      <Paragraph Type=\"Action\">
+        <Text>Note:n1</Text>
+      </Paragraph>
+      <Paragraph Type=\"Action\">
+        <Text>Note:n2</Text>
+      </Paragraph>
+      <Paragraph Type=\"Character\">
+        <Text>UNCLE BOB</Text>
+      </Paragraph>
+      <Paragraph Type=\"Dialogue\">
+        <Text>some dialog</Text>
+      </Paragraph>
     </Content>
   </FinalDraft>
   ")
 
 (def simple-scene
-  (new-scene "GS" "UNCLE BOB" 2 4 2 0))
+  (new-scene "GS" "UNCLE BOB" 2 4 2))
 
 
 (fact (to-scene-line simple-scene) => "GS\tUNCLE BOB\t2\t4\t2")
@@ -116,9 +132,15 @@
      (parsed-action "some action")
      (parsed-actor "UNCLE BOB")
      (parsed-dialog "some dialog")
-     (parsed-action "another action")
+     (parsed-action "Note: note another action")
      (parsed-continued-actor "UNCLE BOB")
-     (parsed-dialog "more dialog")]))
+     (parsed-dialog "more dialog")
+     (parsed-scene "FRONT DOOR" "5" "3")
+     (parsed-action "Note:n1")
+     (parsed-action "Note:n2")
+     (parsed-actor "UNCLE BOB")
+     (parsed-dialog "some dialog")]))
+
 
 (facts "low level unit tests"
   (fact "an empty script has no paragraphs"
@@ -200,31 +222,61 @@
   (fact "a script with just one scene heading yeilds one scene"
     (scenes-from-script
       (parsed-finalDraft
-        [(parsed-scene "WSL" 2 1)])) => [(new-scene "WSL" "" 0 2 1 0)])
+        [(parsed-scene "WSL" 2 1)])) => [(new-scene "WSL" "" 0 2 1)])
 
   (fact "a script with two scene headings yeilds two scenes"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
-         (parsed-scene "WSR" 3 2)])) => [(new-scene "WSL" "" 0 2 1 0)
-                                         (new-scene "WSR" "" 0 3 2 0)])
+         (parsed-scene "WSR" 3 2)])) => [(new-scene "WSL" "" 0 2 1)
+                                         (new-scene "WSR" "" 0 3 2)])
 
   (fact "a script with a scene head and an actor yeilds an acted scene"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
-         (parsed-actor "UB")])) => [(new-scene "WSL" "UB" 1 2 1 0)])
+         (parsed-actor "UB")])) => [(new-scene "WSL" "UB" 1 2 1)])
 
   (fact "a script with more than one actor in a scene will count dialogs"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
          (parsed-actor "UB")
-         (parsed-continued-actor "UB")])) => [(new-scene "WSL" "UB" 2 2 1 0)]))
+         (parsed-continued-actor "UB")])) => [(new-scene "WSL" "UB" 2 2 1)]))
+
+(fact "a script with a simple action in a scene has no effect"
+  (scenes-from-script
+    (parsed-finalDraft
+      [(parsed-scene "WSL" 2 1)
+       (parsed-actor "UB")
+       (parsed-action "some action")])) => [(new-scene "WSL" "UB" 1 2 1)])
+
+(fact "a script with a simple note action in a scene adds the note"
+  (scenes-from-script
+    (parsed-finalDraft
+      [(parsed-scene "WSL" 2 1)
+       (parsed-actor "UB")
+       (parsed-action "Note: a")])) => [(new-scene "WSL" "UB" 1 2 1 "a")])
+
+(fact "a script with a complex note action in a scene adds the note"
+  (scenes-from-script
+    (parsed-finalDraft
+      [(parsed-scene "WSL" 2 1)
+       (parsed-actor "UB")
+       (parsed-action "Note: a Some Note")])) => [(new-scene "WSL" "UB" 1 2 1 "a")])
+
+(fact "a script with several note actions in a scene adds the notes"
+  (scenes-from-script
+    (parsed-finalDraft
+      [(parsed-scene "WSL" 2 1)
+       (parsed-actor "UB")
+       (parsed-action "Note: a Some Note")
+       (parsed-action "note: b some other note")])) => [(new-scene "WSL" "UB" 1 2 1 "a,b")])
 
 (facts "acceptance tests"
   (fact (scene-lines "script.xml") => ["FRONT DOOR\t\t0\t3\t1"
-                                       "GS\tUNCLE BOB\t2\t4\t2\t2"])
+                                       "GS\tUNCLE BOB\t2\t4\t2\tNOTE"
+                                       "FRONT DOOR\tUNCLE BOB\t1\t5\t3\tN1,N2"])
 
   (fact (parse "script.xml") => parsed-script)
 

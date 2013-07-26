@@ -88,14 +88,18 @@
   (let [tags (xml-seq script)]
     (add-paragraphs tags [])))
 
-(defn new-scene [set character dialogs number page actions]
-  (let [scene {:set set
-               :character character
-               :dialogs dialogs
-               :scene number
-               :page page
-               :actions actions}]
-    scene))
+(defn new-scene
+  ([set character dialogs number page]
+    (new-scene set character dialogs number page ""))
+
+  ([set character dialogs number page notes]
+    (let [scene {:set set
+                 :character character
+                 :dialogs dialogs
+                 :scene number
+                 :page page
+                 :notes notes}]
+      scene)))
 
 (defn merge-scene [scenes scene]
   (if (nil? scene)
@@ -103,52 +107,68 @@
     (conj scenes scene)))
 
 (defn make-scene-from-head [head]
-  (new-scene (.set head) "" 0 (.number head) (.page head) 0))
+  (new-scene (.set head) "" 0 (.number head) (.page head)))
 
 (defn add-actor-to-scene [actor scene]
   (assoc scene :character (.name actor) :dialogs (inc (:dialogs scene))))
 
-(defn scenes-from-script
-  ([script]
-    (scenes-from-script (paragraphs-from-script script) [] nil))
-  ([paragraphs scenes scene]
-    (if (empty? paragraphs)
-      (merge-scene scenes scene)
-      (let [paragraph (first paragraphs)]
-        (cond
-          (= Scene (type paragraph))
-          (scenes-from-script (rest paragraphs) (merge-scene scenes scene) (make-scene-from-head paragraph))
+(defn add-note-to-scene [note note-index scene]
+  (let [trimmed-note (.trim (subs note 5))
+        space-index (.indexOf trimmed-note " ")
+        note-end (if (neg? space-index) (count trimmed-note) space-index)
+        trimmed-note (subs trimmed-note 0 note-end)]
+    (if (= (:notes scene) "")
+      (assoc scene :notes (str (:notes scene) trimmed-note))
+      (assoc scene :notes (str (:notes scene) "," trimmed-note)))))
 
-          (= Actor (type paragraph))
-          (scenes-from-script (rest paragraphs) scenes (add-actor-to-scene paragraph scene))
+  (defn add-action-to-scene [action scene]
+    (let [action-text (.action action)
+          note-index (.indexOf (.toLowerCase action-text) "note:")]
+      (if (= note-index 0)
+        (add-note-to-scene action-text note-index scene)
+        scene)))
 
-          (= Action (type paragraph))
-          (scenes-from-script (rest paragraphs) scenes (assoc scene :actions (inc (:actions scene))))
+  (defn scenes-from-script
+    ([script]
+      (scenes-from-script (paragraphs-from-script script) [] nil))
+    ([paragraphs scenes scene]
+      (if (empty? paragraphs)
+        (merge-scene scenes scene)
+        (let [paragraph (first paragraphs)]
+          (cond
+            (= Scene (type paragraph))
+            (scenes-from-script (rest paragraphs) (merge-scene scenes scene) (make-scene-from-head paragraph))
 
-          :else (scenes-from-script (rest paragraphs) scenes scene))))))
+            (= Actor (type paragraph))
+            (scenes-from-script (rest paragraphs) scenes (add-actor-to-scene paragraph scene))
 
-(defn scenes [file]
-  (scenes-from-script (parse file)))
+            (= Action (type paragraph))
+            (scenes-from-script (rest paragraphs) scenes (add-action-to-scene paragraph scene))
 
-(defn to-scene-line [scene]
-  (.toUpperCase
-    (str (:set scene) "\t"
-      (:character scene) "\t"
-      (:dialogs scene) "\t"
-      (:scene scene) "\t"
-      (:page scene)
-      (if (= 0 (:actions scene))
-        ""
-        (str "\t" (:actions scene)))
-      )))
+            :else (scenes-from-script (rest paragraphs) scenes scene))))))
 
-(defn scene-lines [file]
-  (let [scenes (scenes file)]
-    (map to-scene-line scenes)))
+  (defn scenes [file]
+    (scenes-from-script (parse file)))
 
-(defn -main [& args]
-  (let [schedule (scene-lines (first args))]
-    (println "Scenes: " (count schedule))
-    (println header)
-    (doseq [line schedule]
-      (println line))))
+  (defn to-scene-line [scene]
+    (.toUpperCase
+      (str (:set scene) "\t"
+        (:character scene) "\t"
+        (:dialogs scene) "\t"
+        (:scene scene) "\t"
+        (:page scene)
+        (if (= "" (:notes scene))
+          ""
+          (str "\t" (:notes scene)))
+        )))
+
+  (defn scene-lines [file]
+    (let [scenes (scenes file)]
+      (map to-scene-line scenes)))
+
+  (defn -main [& args]
+    (let [schedule (scene-lines (first args))]
+      (println "Scenes: " (count schedule))
+      (println header)
+      (doseq [line schedule]
+        (println line))))
