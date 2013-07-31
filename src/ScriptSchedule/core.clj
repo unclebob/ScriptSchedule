@@ -121,54 +121,59 @@
       (assoc scene :notes (str (:notes scene) trimmed-note))
       (assoc scene :notes (str (:notes scene) "," trimmed-note)))))
 
-  (defn add-action-to-scene [action scene]
-    (let [action-text (.action action)
-          note-index (.indexOf (.toLowerCase action-text) "note:")]
-      (if (= note-index 0)
-        (add-note-to-scene action-text note-index scene)
-        scene)))
+(defn find-index-of-note [action-text]
+  (if (nil? action-text)
+    -1
+    (.indexOf (.toLowerCase action-text) "note:")))
 
-  (defn scenes-from-script
-    ([script]
-      (scenes-from-script (paragraphs-from-script script) [] nil))
-    ([paragraphs scenes scene]
-      (if (empty? paragraphs)
-        (merge-scene scenes scene)
-        (let [paragraph (first paragraphs)]
-          (cond
-            (= Scene (type paragraph))
-            (scenes-from-script (rest paragraphs) (merge-scene scenes scene) (make-scene-from-head paragraph))
+(defn add-action-to-scene [action scene]
+  (let [action-text (.action action)
+        note-index (find-index-of-note action-text)]
+    (if (= note-index 0)
+      (add-note-to-scene action-text note-index scene)
+      scene)))
 
-            (= Actor (type paragraph))
-            (scenes-from-script (rest paragraphs) scenes (add-actor-to-scene paragraph scene))
+(defn scenes-from-script
+  ([script]
+    (scenes-from-script (paragraphs-from-script script) [] nil))
+  ([paragraphs scenes scene]
+    (if (empty? paragraphs)
+      (merge-scene scenes scene)
+      (let [paragraph (first paragraphs)]
+        (cond
+          (= Scene (type paragraph))
+          (scenes-from-script (rest paragraphs) (merge-scene scenes scene) (make-scene-from-head paragraph))
 
-            (= Action (type paragraph))
-            (scenes-from-script (rest paragraphs) scenes (add-action-to-scene paragraph scene))
+          (= Actor (type paragraph))
+          (scenes-from-script (rest paragraphs) scenes (add-actor-to-scene paragraph scene))
 
-            :else (scenes-from-script (rest paragraphs) scenes scene))))))
+          (= Action (type paragraph))
+          (scenes-from-script (rest paragraphs) scenes (add-action-to-scene paragraph scene))
 
-  (defn scenes [file]
-    (scenes-from-script (parse file)))
+          :else (scenes-from-script (rest paragraphs) scenes scene))))))
 
-  (defn to-scene-line [scene]
-    (.toUpperCase
-      (str (:set scene) "\t"
-        (:character scene) "\t"
-        (:dialogs scene) "\t"
-        (:scene scene) "\t"
-        (:page scene)
-        (if (= "" (:notes scene))
-          ""
-          (str "\t" (:notes scene)))
-        )))
+(defn scenes [file]
+  (scenes-from-script (parse file)))
 
-  (defn scene-lines [file]
-    (let [scenes (scenes file)]
-      (map to-scene-line scenes)))
+(defn to-scene-line [scene]
+  (.toUpperCase
+    (str (:set scene) "\t"
+      (:character scene) "\t"
+      (:dialogs scene) "\t"
+      (:scene scene) "\t"
+      (:page scene)
+      (if (= "" (:notes scene))
+        ""
+        (str "\t" (:notes scene)))
+      )))
 
-  (defn -main [& args]
-    (let [schedule (scene-lines (first args))]
-      (println "Scenes: " (count schedule))
-      (println header)
-      (doseq [line schedule]
-        (println line))))
+(defn scene-lines [file]
+  (let [scenes (scenes file)]
+    (map to-scene-line scenes)))
+
+(defn -main [& args]
+  (let [schedule (scene-lines (first args))]
+    (println "Scenes: " (count schedule))
+    (println header)
+    (doseq [line schedule]
+      (println line))))
