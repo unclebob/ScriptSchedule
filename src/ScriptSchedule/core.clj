@@ -98,7 +98,8 @@
                  :dialogs dialogs
                  :scene number
                  :page page
-                 :notes notes}]
+                 :notes notes
+                 :title ""}]
       scene)))
 
 (defn merge-scene [scenes scene]
@@ -112,26 +113,36 @@
 (defn add-actor-to-scene [actor scene]
   (assoc scene :character (.name actor) :dialogs (inc (:dialogs scene))))
 
-(defn add-note-to-scene [note note-index scene]
+(defn append-note [scene note]
+  (assoc scene :notes (str (:notes scene) note)))
+
+(defn add-note-to-scene [note scene]
   (let [trimmed-note (.trim (subs note 5))
         space-index (.indexOf trimmed-note " ")
         note-end (if (neg? space-index) (count trimmed-note) space-index)
         trimmed-note (subs trimmed-note 0 note-end)]
     (if (= (:notes scene) "")
-      (assoc scene :notes (str (:notes scene) trimmed-note))
-      (assoc scene :notes (str (:notes scene) "," trimmed-note)))))
+      (append-note scene trimmed-note)
+      (append-note scene (str "," trimmed-note)))))
 
-(defn find-index-of-note [action-text]
-  (if (nil? action-text)
-    -1
-    (.indexOf (.toLowerCase action-text) "note:")))
+(defn add-title-to-scene [title scene]
+  (let [trimmed-title (.trim (subs title 6))]
+    (assoc scene :title trimmed-title)))
+
+(defn is-note [action-text]
+  (.startsWith (.toLowerCase action-text) "note:"))
+
+(defn is-title [action-text]
+  (.startsWith (.toLowerCase action-text) "title:"))
 
 (defn add-action-to-scene [action scene]
   (let [action-text (.action action)
-        note-index (find-index-of-note action-text)]
-    (if (= note-index 0)
-      (add-note-to-scene action-text note-index scene)
-      scene)))
+        note-index (is-note action-text)]
+    (cond
+      (nil? action-text) scene
+      (is-note action-text) (add-note-to-scene action-text scene)
+      (is-title action-text) (add-title-to-scene action-text scene)
+      :default scene)))
 
 (defn scenes-from-script
   ([script]
@@ -161,10 +172,9 @@
       (:character scene) "\t"
       (:dialogs scene) "\t"
       (:scene scene) "\t"
-      (:page scene)
-      (if (= "" (:notes scene))
-        ""
-        (str "\t" (:notes scene)))
+      (:page scene) "\t"
+      (:notes scene) "\t"
+      (:title scene)
       )))
 
 (defn scene-lines [file]

@@ -14,6 +14,9 @@
         <SceneProperties Page=\"1\"/>
         <Text>INT. FRONT DOOR - DAY</Text>
       </Paragraph>
+      <Paragraph Type=\"Action\">
+        <Text>Title: This is a title</Text>
+      </Paragraph>
       <gunk/>
       <Paragraph Number=\"4\" Type=\"Scene Heading\">
         <SceneProperties Page=\"2\"/>
@@ -63,7 +66,7 @@
   (new-scene "GS" "UNCLE BOB" 2 4 2))
 
 
-(fact (to-scene-line simple-scene) => "GS\tUNCLE BOB\t2\t4\t2")
+(fact (to-scene-line simple-scene) => "GS\tUNCLE BOB\t2\t4\t2\t\t")
 
 (defn parsed-finalDraft [content]
   {:tag :FinalDraft,
@@ -127,6 +130,7 @@
 (def parsed-script
   (parsed-finalDraft
     [(parsed-scene "FRONT DOOR" "3" "1")
+     (parsed-action "Title: This is a title")
      (parsed-tag :gunk )
      (parsed-scene "GS", "4" "2")
      (parsed-action "some action")
@@ -222,48 +226,56 @@
   (fact "a script with just one scene heading yeilds one scene"
     (scenes-from-script
       (parsed-finalDraft
-        [(parsed-scene "WSL" 2 1)])) => [(new-scene "WSL" "" 0 2 1)])
+        [(parsed-scene "WSL" 2 1)])) => [{:character "", :dialogs 0, :notes "",
+                                          :page 1, :scene 2, :set "WSL", :title ""}])
 
   (fact "a script with two scene headings yeilds two scenes"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
-         (parsed-scene "WSR" 3 2)])) => [(new-scene "WSL" "" 0 2 1)
-                                         (new-scene "WSR" "" 0 3 2)])
+         (parsed-scene "WSR" 3 2)])) => [{:character "", :dialogs 0, :notes "",
+                                          :page 1, :scene 2, :set "WSL", :title ""}
+                                         {:character "", :dialogs 0, :notes "",
+                                          :page 2, :scene 3, :set "WSR", :title ""}])
 
   (fact "a script with a scene head and an actor yeilds an acted scene"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
-         (parsed-actor "UB")])) => [(new-scene "WSL" "UB" 1 2 1)])
+         (parsed-actor "UB")])) => [{:character "UB", :dialogs 1, :notes "",
+                                     :page 1, :scene 2, :set "WSL", :title ""}])
 
   (fact "a script with more than one actor in a scene will count dialogs"
     (scenes-from-script
       (parsed-finalDraft
         [(parsed-scene "WSL" 2 1)
          (parsed-actor "UB")
-         (parsed-continued-actor "UB")])) => [(new-scene "WSL" "UB" 2 2 1)]))
+         (parsed-continued-actor "UB")])) => [{:character "UB", :dialogs 2, :notes "",
+                                               :page 1, :scene 2, :set "WSL", :title ""}]))
 
 (fact "a script with a simple action in a scene has no effect"
   (scenes-from-script
     (parsed-finalDraft
       [(parsed-scene "WSL" 2 1)
        (parsed-actor "UB")
-       (parsed-action "some action")])) => [(new-scene "WSL" "UB" 1 2 1)])
+       (parsed-action "some action")])) => [{:character "UB", :dialogs 1, :notes "",
+                                             :page 1, :scene 2, :set "WSL", :title ""}])
 
 (fact "a script with a simple note action in a scene adds the note"
   (scenes-from-script
     (parsed-finalDraft
       [(parsed-scene "WSL" 2 1)
        (parsed-actor "UB")
-       (parsed-action "Note: a")])) => [(new-scene "WSL" "UB" 1 2 1 "a")])
+       (parsed-action "Note: a")])) => [{:character "UB", :dialogs 1, :notes "a",
+                                         :page 1, :scene 2, :set "WSL", :title ""}])
 
 (fact "a script with a complex note action in a scene adds the note"
   (scenes-from-script
     (parsed-finalDraft
       [(parsed-scene "WSL" 2 1)
        (parsed-actor "UB")
-       (parsed-action "Note: a Some Note")])) => [(new-scene "WSL" "UB" 1 2 1 "a")])
+       (parsed-action "Note: a Some Note")])) => [{:character "UB", :dialogs 1, :notes "a",
+                                                   :page 1, :scene 2, :set "WSL", :title ""}])
 
 (fact "a script with several note actions in a scene adds the notes"
   (scenes-from-script
@@ -271,12 +283,21 @@
       [(parsed-scene "WSL" 2 1)
        (parsed-actor "UB")
        (parsed-action "Note: a Some Note")
-       (parsed-action "note: b some other note")])) => [(new-scene "WSL" "UB" 1 2 1 "a,b")])
+       (parsed-action "note: b some other note")])) => [{:character "UB", :dialogs 1, :notes "a,b",
+                                                         :page 1, :scene 2, :set "WSL", :title ""}])
+
+(fact "a script with a title action in a scene sets the title"
+  (scenes-from-script
+    (parsed-finalDraft
+      [(parsed-scene "WSL" 2 1)
+       (parsed-actor "UB")
+       (parsed-action "Title: some title")])) => [{:character "UB", :dialogs 1, :notes "",
+                                                   :page 1, :scene 2, :set "WSL", :title "some title"}])
 
 (facts "acceptance tests"
-  (fact (scene-lines "script.xml") => ["FRONT DOOR\t\t0\t3\t1"
-                                       "GS\tUNCLE BOB\t2\t4\t2\tNOTE"
-                                       "FRONT DOOR\tUNCLE BOB\t1\t5\t3\tN1,N2"])
+  (fact (scene-lines "script.xml") => ["FRONT DOOR\t\t0\t3\t1\t\tTHIS IS A TITLE"
+                                       "GS\tUNCLE BOB\t2\t4\t2\tNOTE\t"
+                                       "FRONT DOOR\tUNCLE BOB\t1\t5\t3\tN1,N2\t"])
 
   (fact (parse "script.xml") => parsed-script)
 
