@@ -130,7 +130,7 @@
     (assoc scene :title trimmed-title)))
 
 (defn is-note [action-text]
-  (.startsWith (.toLowerCase action-text) "note:"))
+  (if (nil? action-text) false (.startsWith (.toLowerCase action-text) "note:")))
 
 (defn is-title [action-text]
   (.startsWith (.toLowerCase action-text) "title:"))
