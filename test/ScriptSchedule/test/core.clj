@@ -100,6 +100,17 @@
    :content [{:tag :Text,
               :attrs nil,
               :content [action]}]})
+
+(defn parsed-double-action [action1 action2]
+  {:tag :Paragraph,
+   :attrs {:Type "Action"},
+   :content [{:tag :Text,
+              :attrs nil,
+              :content [action1]}
+             {:tag :Text,
+              :attrs nil,
+              :content [action2]}]})
+
 (defn parsed-actor [character]
   {:tag :Paragraph,
    :attrs {:Type "Character"},
@@ -189,6 +200,11 @@
     (paragraphs-from-script
       (parsed-finalDraft
         [(parsed-action "action")])) => [(new-action "action")])
+
+  (fact "a script with one action having two text tags gives an action paragraph"
+    (paragraphs-from-script
+      (parsed-finalDraft
+        [(parsed-double-action "action1" "-action2")])) => [(new-action "action1-action2")])
 
   (fact "a script with scene headings and characters creates paragraphs"
     (paragraphs-from-script

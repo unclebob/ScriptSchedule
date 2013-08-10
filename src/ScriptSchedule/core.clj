@@ -46,11 +46,19 @@
           location-end (if (> 0 dash) (count set) dash)]
       (subs set location-start location-end))))
 
+(defn get-first-text [content]
+  (-> (find-tag :Text content) :content first))
+
+(defn get-all-text [content]
+  (let [text-tags (filter #(= :Text (:tag %)) content)
+        texts (map #(first (:content %)) text-tags)]
+    (apply str texts)))
+
 (defn make-scene [tag]
   (let [attrs (:attrs tag)
         content (:content tag)
         page (-> (find-tag :SceneProperties content) :attrs :Page )
-        set (-> (find-tag :Text content) :content first)]
+        set (get-first-text content)]
     (new-scene-head (extract-location set) (:Number attrs) page)))
 
 (defn remove-cont [name]
@@ -60,12 +68,12 @@
 
 (defn make-actor [tag]
   (let [content (:content tag)
-        actor-name (-> (find-tag :Text content) :content first)]
+        actor-name (get-first-text content)]
     (new-actor (remove-cont actor-name))))
 
 (defn make-action [tag]
   (let [content (:content tag)
-        action (-> (find-tag :Text content) :content first)]
+        action (get-all-text content)]
     (new-action action)))
 
 (defn add-paragraphs [tags paragraphs]
@@ -130,14 +138,13 @@
     (assoc scene :title trimmed-title)))
 
 (defn is-note [action-text]
-  (if (nil? action-text) false (.startsWith (.toLowerCase action-text) "note:")))
+  (.startsWith (.toLowerCase action-text) "note:"))
 
 (defn is-title [action-text]
   (.startsWith (.toLowerCase action-text) "title:"))
 
 (defn add-action-to-scene [action scene]
-  (let [action-text (.action action)
-        note-index (is-note action-text)]
+  (let [action-text (.action action)]
     (cond
       (nil? action-text) scene
       (is-note action-text) (add-note-to-scene action-text scene)
