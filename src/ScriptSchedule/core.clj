@@ -1,5 +1,5 @@
 (ns ScriptSchedule.core
-  (:use [clojure.xml])
+  (:use [clojure.xml :only [parse] :rename {parse parse-xml}])
   (:use [clojure.pprint])
   (:gen-class ))
 
@@ -151,27 +151,28 @@
       (is-title action-text) (add-title-to-scene action-text scene)
       :default scene)))
 
-(defn scenes-from-script
-  ([script]
-    (scenes-from-script (paragraphs-from-script script) [] nil))
-  ([paragraphs scenes scene]
+(defn build-scenes-from-paragraphs [paragraphs scenes scene]
     (if (empty? paragraphs)
       (merge-scene scenes scene)
       (let [paragraph (first paragraphs)]
         (cond
           (= Scene (type paragraph))
-          (scenes-from-script (rest paragraphs) (merge-scene scenes scene) (make-scene-from-head paragraph))
+          (recur (rest paragraphs) (merge-scene scenes scene) (make-scene-from-head paragraph))
 
           (= Actor (type paragraph))
-          (scenes-from-script (rest paragraphs) scenes (add-actor-to-scene paragraph scene))
+          (recur (rest paragraphs) scenes (add-actor-to-scene paragraph scene))
 
           (= Action (type paragraph))
-          (scenes-from-script (rest paragraphs) scenes (add-action-to-scene paragraph scene))
+          (recur (rest paragraphs) scenes (add-action-to-scene paragraph scene))
 
-          :else (scenes-from-script (rest paragraphs) scenes scene))))))
+          :else (recur (rest paragraphs) scenes scene)))))
 
-(defn scenes [file]
-  (scenes-from-script (parse file)))
+(defn build-scenes-from-script-xml [script]
+    (build-scenes-from-paragraphs (paragraphs-from-script script) [] nil))
+
+(defn build-scenes-from-file [file-name]
+  (let [script-xml (parse-xml file-name)]
+    (build-scenes-from-script-xml script-xml)))
 
 (defn to-scene-line [scene]
   (.toUpperCase
@@ -184,13 +185,14 @@
       (:title scene)
       )))
 
-(defn scene-lines [file]
-  (let [scenes (scenes file)]
+(defn to-scene-lines [file-name]
+  (let [scenes (build-scenes-from-file file-name)]
     (map to-scene-line scenes)))
 
 (defn -main [& args]
-  (let [schedule (scene-lines (first args))]
-    (println "Scenes: " (count schedule))
+  (let [file-name (first args)
+        scene-lines (to-scene-lines file-name)]
+    (println "Scenes: " (count scene-lines))
     (println header)
-    (doseq [line schedule]
+    (doseq [line scene-lines]
       (println line))))
