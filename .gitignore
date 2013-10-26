@@ -6,6 +6,7 @@ pom.xml
 /targets/
 *.ipr
 *.iws
+*.iml
 .lein-deps-sum
 .DS_Store
 .lein-repl-history

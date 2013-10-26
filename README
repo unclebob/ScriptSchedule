@@ -3,11 +3,9 @@
 FIXME: write description
 
 ## Usage
+## Running Tests
+lein midje
+lein midje :autotest
 
-FIXME: write
 
-## License
 
-Copyright (C) 2013 FIXME
-
-Distributed under the Eclipse Public License, the same as Clojure.

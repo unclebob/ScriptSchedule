@@ -1,7 +1,7 @@
 (ns ScriptSchedule.core
   (:use [clojure.xml :only [parse] :rename {parse parse-xml}])
   (:use [clojure.pprint])
-  (:gen-class ))
+  (:gen-class))
 
 (def header "Set\tCharacter\tDialogs\tScene\tPage\tNotes")
 
@@ -25,7 +25,7 @@
 
 (defn is-paragraph-of-type [tag type]
   (and
-    (= (:tag tag) :Paragraph )
+    (= (:tag tag) :Paragraph)
     (= (:Type (:attrs tag)) type)))
 
 (defn scene-header? [tag]
@@ -57,7 +57,7 @@
 (defn make-scene [tag]
   (let [attrs (:attrs tag)
         content (:content tag)
-        page (-> (find-tag :SceneProperties content) :attrs :Page )
+        page (-> (find-tag :SceneProperties content) :attrs :Page)
         set (get-first-text content)]
     (new-scene-head (extract-location set) (:Number attrs) page)))
 
@@ -98,17 +98,17 @@
 
 (defn new-scene
   ([set character dialogs number page]
-    (new-scene set character dialogs number page ""))
+   (new-scene set character dialogs number page ""))
 
   ([set character dialogs number page notes]
-    (let [scene {:set set
-                 :character character
-                 :dialogs dialogs
-                 :scene number
-                 :page page
-                 :notes notes
-                 :title ""}]
-      scene)))
+   (let [scene {:set set
+                :character character
+                :dialogs dialogs
+                :scene number
+                :page page
+                :notes notes
+                :title ""}]
+     scene)))
 
 (defn merge-scene [scenes scene]
   (if (nil? scene)
@@ -152,23 +152,23 @@
       :default scene)))
 
 (defn build-scenes-from-paragraphs [paragraphs scenes scene]
-    (if (empty? paragraphs)
-      (merge-scene scenes scene)
-      (let [paragraph (first paragraphs)]
-        (cond
-          (= Scene (type paragraph))
-          (recur (rest paragraphs) (merge-scene scenes scene) (make-scene-from-head paragraph))
+  (if (empty? paragraphs)
+    (merge-scene scenes scene)
+    (let [paragraph (first paragraphs)]
+      (cond
+        (= Scene (type paragraph))
+        (recur (rest paragraphs) (merge-scene scenes scene) (make-scene-from-head paragraph))
 
-          (= Actor (type paragraph))
-          (recur (rest paragraphs) scenes (add-actor-to-scene paragraph scene))
+        (= Actor (type paragraph))
+        (recur (rest paragraphs) scenes (add-actor-to-scene paragraph scene))
 
-          (= Action (type paragraph))
-          (recur (rest paragraphs) scenes (add-action-to-scene paragraph scene))
+        (= Action (type paragraph))
+        (recur (rest paragraphs) scenes (add-action-to-scene paragraph scene))
 
-          :else (recur (rest paragraphs) scenes scene)))))
+        :else (recur (rest paragraphs) scenes scene)))))
 
 (defn build-scenes-from-script-xml [script]
-    (build-scenes-from-paragraphs (paragraphs-from-script script) [] nil))
+  (build-scenes-from-paragraphs (paragraphs-from-script script) [] nil))
 
 (defn build-scenes-from-file [file-name]
   (let [script-xml (parse-xml file-name)]
@@ -177,22 +177,49 @@
 (defn to-scene-line [scene]
   (.toUpperCase
     (str (:set scene) "\t"
-      (:character scene) "\t"
-      (:dialogs scene) "\t"
-      (:scene scene) "\t"
-      (:page scene) "\t"
-      (:notes scene) "\t"
-      (:title scene)
-      )))
+         (:character scene) "\t"
+         (:dialogs scene) "\t"
+         (:scene scene) "\t"
+         (:page scene) "\t"
+         (:notes scene) "\t"
+         (:title scene)
+         )))
 
-(defn to-scene-lines [file-name]
-  (let [scenes (build-scenes-from-file file-name)]
-    (map to-scene-line scenes)))
+(defn should-warn-dialogs-no-actions [scene]
+  (let [dialogs (:dialogs scene)
+        notes (:notes scene)]
+    (and (not (nil? dialogs))
+         (> dialogs 1)
+         (empty? notes))))
+
+(defn make-warning [scene]
+  (if (should-warn-dialogs-no-actions scene)
+    {:warning :multiple-dialogs-without-notes :scene (:scene scene) :page (:page scene) :dialogs (:dialogs scene)}
+    nil))
+
+(defn make-warnings
+  ([scenes]
+   (make-warnings scenes []))
+  ([scenes warnings]
+   (if (empty? scenes)
+     warnings
+     (let [warning (make-warning (first scenes))]
+       (if (nil? warning)
+         (make-warnings (rest scenes) warnings)
+         (make-warnings (rest scenes) (conj warnings warning)))))))
+
 
 (defn -main [& args]
   (let [file-name (first args)
-        scene-lines (to-scene-lines file-name)]
+        scenes (build-scenes-from-file file-name)
+        scene-lines (map to-scene-line scenes)
+        warnings (make-warnings scenes)]
     (println "Scenes: " (count scene-lines))
     (println header)
     (doseq [line scene-lines]
-      (println line))))
+      (println line))
+    (when (not (empty? warnings))
+      (println "-----Warnings-----")
+      (doseq [warning warnings]
+        (pprint warning)))
+    ))
