@@ -101,13 +101,13 @@
    (new-scene set character dialogs number page ""))
 
   ([set character dialogs number page notes]
-   (let [scene {:set set
+   (let [scene {:set       set
                 :character character
-                :dialogs dialogs
-                :scene number
-                :page page
-                :notes notes
-                :title ""}]
+                :dialogs   dialogs
+                :scene     number
+                :page      page
+                :notes     notes
+                :title     ""}]
      scene)))
 
 (defn merge-scene [scenes scene]
@@ -192,9 +192,30 @@
          (> dialogs 1)
          (empty? notes))))
 
+(defn should-warn-empty-scene [scene]
+  (empty? (:set scene)))
+
+(defn should-warn-no-dialogs [scene]
+  (zero? (:dialogs scene)))
+
+(defn should-warn-no-scene-number [scene]
+  (empty? (:scene scene)))
+
 (defn make-warning [scene]
-  (if (should-warn-dialogs-no-actions scene)
+  (cond
+    (should-warn-no-scene-number scene)
+    {:warning :no-scene-number :page (:page scene)}
+
+    (should-warn-no-dialogs scene)
+    {:warning :no-dialogs :scene (:scene scene) :page (:page scene)}
+
+    (should-warn-dialogs-no-actions scene)
     {:warning :multiple-dialogs-without-notes :scene (:scene scene) :page (:page scene) :dialogs (:dialogs scene)}
+
+    (should-warn-empty-scene scene)
+    {:warning :empty-scene :page (:page scene) :scene (:scene scene)}
+
+    :default
     nil))
 
 (defn make-warnings

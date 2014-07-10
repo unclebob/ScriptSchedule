@@ -69,23 +69,23 @@
 (fact (to-scene-line simple-scene) => "GS\tUNCLE BOB\t2\t4\t2\t\t")
 
 (defn parsed-finalDraft [content]
-  {:tag :FinalDraft,
-   :attrs {:DocumentType "Script",
-           :Template "No",
-           :Version "1"},
-   :content [{:tag :Content,
-              :attrs nil,
+  {:tag     :FinalDraft,
+   :attrs   {:DocumentType "Script",
+             :Template     "No",
+             :Version      "1"},
+   :content [{:tag     :Content,
+              :attrs   nil,
               :content content}]})
 
 (defn parsed-scene-raw [set scene page]
-  {:tag :Paragraph,
-   :attrs {:Number scene,
-           :Type "Scene Heading"},
-   :content [{:tag :SceneProperties,
-              :attrs {:Page page},
+  {:tag     :Paragraph,
+   :attrs   {:Number scene,
+             :Type   "Scene Heading"},
+   :content [{:tag     :SceneProperties,
+              :attrs   {:Page page},
               :content nil}
-             {:tag :Text,
-              :attrs nil,
+             {:tag     :Text,
+              :attrs   nil,
               :content [set]}]})
 
 (defn parsed-scene [set scene page]
@@ -95,47 +95,47 @@
   {:tag tag, :attrs nil, :content nil})
 
 (defn parsed-action [action]
-  {:tag :Paragraph,
-   :attrs {:Type "Action"},
-   :content [{:tag :Text,
-              :attrs nil,
+  {:tag     :Paragraph,
+   :attrs   {:Type "Action"},
+   :content [{:tag     :Text,
+              :attrs   nil,
               :content [action]}]})
 
 (defn parsed-double-action [action1 action2]
-  {:tag :Paragraph,
-   :attrs {:Type "Action"},
-   :content [{:tag :Text,
-              :attrs nil,
+  {:tag     :Paragraph,
+   :attrs   {:Type "Action"},
+   :content [{:tag     :Text,
+              :attrs   nil,
               :content [action1]}
-             {:tag :Text,
-              :attrs nil,
+             {:tag     :Text,
+              :attrs   nil,
               :content [action2]}]})
 
 (defn parsed-actor [character]
-  {:tag :Paragraph,
-   :attrs {:Type "Character"},
-   :content [{:tag :Text,
-              :attrs nil,
+  {:tag     :Paragraph,
+   :attrs   {:Type "Character"},
+   :content [{:tag     :Text,
+              :attrs   nil,
               :content [character]}]})
 
 (defn parsed-continued-actor [character]
-  {:tag :Paragraph,
-   :attrs {:Type "Character"},
-   :content [{:tag :Text,
-              :attrs nil,
+  {:tag     :Paragraph,
+   :attrs   {:Type "Character"},
+   :content [{:tag     :Text,
+              :attrs   nil,
               :content [(str character " (")]}
-             {:tag :Text,
-              :attrs {:AdornmentStyle "-1"},
+             {:tag     :Text,
+              :attrs   {:AdornmentStyle "-1"},
               :content ["CONT�D"]}
-             {:tag :Text,
-              :attrs nil,
+             {:tag     :Text,
+              :attrs   nil,
               :content [")"]}]})
 
 (defn parsed-dialog [dialog]
-  {:tag :Paragraph,
-   :attrs {:Type "Dialogue"},
-   :content [{:tag :Text,
-              :attrs nil,
+  {:tag     :Paragraph,
+   :attrs   {:Type "Dialogue"},
+   :content [{:tag     :Text,
+              :attrs   nil,
               :content [dialog]}]})
 
 (def parsed-script
@@ -243,23 +243,23 @@
              (build-scenes-from-script-xml
                (parsed-finalDraft
                  [(parsed-scene "WSL" 2 1)])) => [{:character "", :dialogs 0, :notes "",
-                                                   :page 1, :scene 2, :set "WSL", :title ""}])
+                                                   :page      1, :scene 2, :set "WSL", :title ""}])
 
        (fact "a script with two scene headings yeilds two scenes"
              (build-scenes-from-script-xml
                (parsed-finalDraft
                  [(parsed-scene "WSL" 2 1)
                   (parsed-scene "WSR" 3 2)])) => [{:character "", :dialogs 0, :notes "",
-                                                   :page 1, :scene 2, :set "WSL", :title ""}
+                                                   :page      1, :scene 2, :set "WSL", :title ""}
                                                   {:character "", :dialogs 0, :notes "",
-                                                   :page 2, :scene 3, :set "WSR", :title ""}])
+                                                   :page      2, :scene 3, :set "WSR", :title ""}])
 
        (fact "a script with a scene head and an actor yeilds an acted scene"
              (build-scenes-from-script-xml
                (parsed-finalDraft
                  [(parsed-scene "WSL" 2 1)
                   (parsed-actor "UB")])) => [{:character "UB", :dialogs 1, :notes "",
-                                              :page 1, :scene 2, :set "WSL", :title ""}])
+                                              :page      1, :scene 2, :set "WSL", :title ""}])
 
        (fact "a script with more than one actor in a scene will count dialogs"
              (build-scenes-from-script-xml
@@ -267,7 +267,7 @@
                  [(parsed-scene "WSL" 2 1)
                   (parsed-actor "UB")
                   (parsed-continued-actor "UB")])) => [{:character "UB", :dialogs 2, :notes "",
-                                                        :page 1, :scene 2, :set "WSL", :title ""}]))
+                                                        :page      1, :scene 2, :set "WSL", :title ""}]))
 (facts "action notes"
 
        (fact "a script with a simple action in a scene has no effect"
@@ -276,7 +276,7 @@
                  [(parsed-scene "WSL" 2 1)
                   (parsed-actor "UB")
                   (parsed-action "some action")])) => [{:character "UB", :dialogs 1, :notes "",
-                                                        :page 1, :scene 2, :set "WSL", :title ""}])
+                                                        :page      1, :scene 2, :set "WSL", :title ""}])
 
        (fact "a script with a simple note action in a scene adds the note"
              (build-scenes-from-script-xml
@@ -284,7 +284,7 @@
                  [(parsed-scene "WSL" 2 1)
                   (parsed-actor "UB")
                   (parsed-action "Note: a")])) => [{:character "UB", :dialogs 1, :notes "a",
-                                                    :page 1, :scene 2, :set "WSL", :title ""}])
+                                                    :page      1, :scene 2, :set "WSL", :title ""}])
 
        (fact "a script with a complex note action in a scene adds the note"
              (build-scenes-from-script-xml
@@ -292,7 +292,7 @@
                  [(parsed-scene "WSL" 2 1)
                   (parsed-actor "UB")
                   (parsed-action "Note: a Some Note")])) => [{:character "UB", :dialogs 1, :notes "a",
-                                                              :page 1, :scene 2, :set "WSL", :title ""}])
+                                                              :page      1, :scene 2, :set "WSL", :title ""}])
 
        (fact "a script with several note actions in a scene adds the notes"
              (build-scenes-from-script-xml
@@ -301,7 +301,7 @@
                   (parsed-actor "UB")
                   (parsed-action "Note: a Some Note")
                   (parsed-action "note: b some other note")])) => [{:character "UB", :dialogs 1, :notes "a,b",
-                                                                    :page 1, :scene 2, :set "WSL", :title ""}])
+                                                                    :page      1, :scene 2, :set "WSL", :title ""}])
 
        (fact "a script with a title action in a scene sets the title"
              (build-scenes-from-script-xml
@@ -309,26 +309,49 @@
                  [(parsed-scene "WSL" 2 1)
                   (parsed-actor "UB")
                   (parsed-action "Title: some title")])) => [{:character "UB", :dialogs 1, :notes "",
-                                                              :page 1, :scene 2, :set "WSL", :title "some title"}]))
+                                                              :page      1, :scene 2, :set "WSL", :title "some title"}]))
 (facts "warnings"
        (fact "a script with more than one actor but with no action notes will create a warning"
              (let [scenes (build-scenes-from-script-xml
                             (parsed-finalDraft
-                              [(parsed-scene "WSL" 2 1)
+                              [(parsed-scene "WSL" "2" "1")
                                (parsed-actor "UB")
                                (parsed-actor "BU")]))
                    warnings (make-warnings scenes)]
-               warnings => [{:warning :multiple-dialogs-without-notes :scene 2 :page 1 :dialogs 2}]))
+               warnings => [{:warning :multiple-dialogs-without-notes :scene "2" :page "1" :dialogs 2}]))
 
        (fact "a script with more than one actor and with action notes will not create a warning"
-                    (let [scenes (build-scenes-from-script-xml
-                                   (parsed-finalDraft
-                                     [(parsed-scene "WSL" 2 1)
-                                      (parsed-actor "UB")
-                                      (parsed-actor "BU")
-                                      (parsed-action "Note: a Some Note")]))
-                          warnings (make-warnings scenes)]
-                      warnings => []))
+             (let [scenes (build-scenes-from-script-xml
+                            (parsed-finalDraft
+                              [(parsed-scene "WSL" "2" "1")
+                               (parsed-actor "UB")
+                               (parsed-actor "BU")
+                               (parsed-action "Note: a Some Note")]))
+                   warnings (make-warnings scenes)]
+               warnings => []))
+
+       (fact "a scene with no location will create a warning"
+             (let [scenes (build-scenes-from-script-xml
+                            (parsed-finalDraft
+                              [(parsed-scene "" "2" "1")
+                               (parsed-actor "UB")]))
+                   warnings (make-warnings scenes)]
+               warnings => [{:warning :empty-scene :scene "2" :page "1"}]))
+
+       (fact "a scene with no dialogs will create a warning"
+             (let [scenes (build-scenes-from-script-xml
+                            (parsed-finalDraft
+                              [(parsed-scene "WSL" "2" "1")]))
+                   warnings (make-warnings scenes)]
+               warnings => [{:warning :no-dialogs :scene "2" :page "1"}]))
+
+       (fact "a scene with no scene number will create a warning"
+             (let [scenes (build-scenes-from-script-xml
+                            (parsed-finalDraft
+                              [(parsed-scene "WSL" "" "1")
+                               (parsed-actor "UB")]))
+                   warnings (make-warnings scenes)]
+               warnings => [{:warning :no-scene-number :page "1"}]))
        )
 
 (defn to-scene-lines [file-name]

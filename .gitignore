@@ -10,4 +10,5 @@ pom.xml
 .lein-deps-sum
 .DS_Store
 .lein-repl-history
+.idea
 
