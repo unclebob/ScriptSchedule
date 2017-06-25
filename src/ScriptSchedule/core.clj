@@ -124,14 +124,29 @@
 (defn append-note [scene note]
   (assoc scene :notes (str (:notes scene) note)))
 
+(defn handle-prop [scene note-remark]
+  (let [props (:props scene)
+        updated-props (if (nil? props)
+                        [note-remark]
+                        (conj props note-remark))]
+    (assoc scene :props updated-props)))
+
+(defn annotate-scene [scene note-code]
+  (if (= (:notes scene) "")
+        (append-note scene note-code)
+        (append-note scene (str "," note-code))))
+
 (defn add-note-to-scene [note scene]
   (let [trimmed-note (.trim (subs note 5))
         space-index (.indexOf trimmed-note " ")
         note-end (if (neg? space-index) (count trimmed-note) space-index)
-        trimmed-note (subs trimmed-note 0 note-end)]
-    (if (= (:notes scene) "")
-      (append-note scene trimmed-note)
-      (append-note scene (str "," trimmed-note)))))
+        note-code (subs trimmed-note 0 note-end)
+        note-remark (.trim (subs trimmed-note note-end))
+        annotated-scene (annotate-scene scene note-code)]
+    (if (= note-code "P")
+      (handle-prop annotated-scene note-remark)
+      annotated-scene)))
+
 
 (defn add-title-to-scene [title scene]
   (let [trimmed-title (.trim (subs title 6))]
@@ -218,6 +233,9 @@
     :default
     nil))
 
+(defn get-all-props [scenes]
+  (mapcat :props scenes))
+
 (defn make-warnings
   ([scenes]
    (make-warnings scenes []))
@@ -234,8 +252,13 @@
   (let [file-name (first args)
         scenes (build-scenes-from-file file-name)
         scene-lines (map to-scene-line scenes)
-        warnings (make-warnings scenes)]
+        warnings (make-warnings scenes)
+        props (get-all-props scenes)]
     (println "Scenes: " (count scene-lines))
+    (println "Props:")
+    (doseq [prop props]
+      (println "....." prop))
+    (println "---------\n")
     (println header)
     (doseq [line scene-lines]
       (println line))
